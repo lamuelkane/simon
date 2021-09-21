@@ -1,0 +1,127 @@
+.headerwraper{
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 1);
+    background-color: rgba(211, 209, 209, 1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all .5s ease;
+    transform: translateY(0);
+}
+
+.hideheader{
+    transform: translateY(-150%);
+}
+
+.showheader{
+    transform: translateY(0);
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+}
+
+.headertopwraper{
+    padding: 7px;
+    background-color: rgb(201, 203, 204);
+}
+
+.headerbottomwraper{
+
+}
+
+.headertop{
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerbottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.sideNav{
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    background-color: rgb(202, 200, 200);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    z-index: 200;
+    overflow-y: scroll;
+    transition: all .5s ease;
+}
+
+.hidesidenav{
+    transform: translateX(-101%);
+}
+
+.sidenavitem{
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.sidenavitem:hover,
+.subsidenavitem:hover{
+    background-color: grey;
+}
+
+.subsidenavitem{
+    margin-left: 25px;
+    padding: 10px;
+}
+
+.logo{
+    height: 70px;
+    width: 70px;
+}
+
+.shopcategoriesitems{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.shopcategories{
+    position: relative;
+}
+
+.shopcategories:hover .shopcategoriesitemswrapper{     
+    background-color: white;
+    display: flex;
+}
+
+.shopcategoriesitemswrapper{
+    background: white;
+    display: none;
+    flex-wrap: wrap;
+    padding: 15px;
+    width: 300px;
+    left: -135px;
+    top: 30px;
+    position: absolute;
+    box-shadow: 5px 5px 16px -8px rgba(0, 0, 0, 1);
+    right: 0;
+    margin: auto;
+}
+
+.shopcategoriesitemswrapper::before{
+    border-bottom: 35px solid white;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    content: "";
+    height: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    top: -15px;
+    width: 0;
+    z-index: -2;
+}

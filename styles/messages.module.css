@@ -1,0 +1,175 @@
+.messages{
+    display:flex;
+    height: 100vh;
+}
+
+.nomessage{
+    height: 100%;
+    width: 100%;
+    font-size: x-large;
+    text-align: center;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nomessagetext{
+    margin:0 30px
+}
+
+.messagesSidewrapper{
+    flex: 3;
+    border-right: 1px solid grey;
+    overflow-y: scroll;
+    height: 100vh;
+    min-width: 320px;
+}
+
+.messagesContentwrapper{
+    flex: 9;
+    height: 100vh;
+    position: relative;
+}
+
+.messageconversationheader{
+    width: 100%;
+    height: 150px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 10px;
+}
+
+.messageconversationheaderinput{
+    width: 80%;
+    margin: auto;
+    margin-left: 15px;
+}
+
+.messagesContentheader{
+    background-color: white;
+    height: 80px;
+    width: 100%;
+    position: sticky;
+    top: 10;
+    padding: 15px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.messagesContentmain{
+    height: 70%;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+}
+
+.messagesContentfooter{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+}
+
+.messagesContentfootertext{
+    width: 80%;
+    height: 90%;
+    margin-right: 10px;
+}
+
+.sendbtn{
+    border: none;
+    background: transparent;
+}
+
+
+.Converssation{
+    display: flex;
+    /* height: 80px; */
+    width: 100%;
+    align-items: center;
+    /* margin-top: 10px; */
+    cursor: pointer;
+    padding: 5px;
+}
+
+.Converssation:hover{
+    background-color: rgb(177, 171, 171);
+}
+
+.onlineusers{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    margin-top: 15px;
+}
+
+.Converssationimg{
+    height: 50px;
+    width: 50px;
+}
+
+.Converssationimgwrapper{
+    margin-right: 10px;
+
+}
+
+.Converssationcontent{
+    display: flex;
+    flex-direction: column;
+    min-width: 80%;
+    position: relative;
+}
+
+.unreadmessagecount{
+    padding: 2px;
+    border-radius: 30%;
+    background-color: red;
+    color: white;
+    position: absolute;
+    right: 0;
+    font-size: smaller;
+    bottom: 0;
+}
+
+.Converssationcontentheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Converssationcontentheaderh3{
+    margin: 0;
+}
+
+.hidecontentarrow{
+    display: none;
+}
+
+@media screen and (max-width: 750px){
+    .messagesSidewrapper{
+        width: 100vw;
+    }
+
+    .messagesContentwrapper{
+       position: fixed;
+       z-index: 20;
+       width: 100vw;
+       background: white;
+       transition: all .5s ease;
+    }
+
+    .hidecontent{
+        transform: translateX(101%);
+    }
+
+    .hidecontentarrow{
+        display: flex;
+    }
+}

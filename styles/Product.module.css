@@ -1,0 +1,247 @@
+.product{
+    height: 260px;
+    width: 180px;
+    background: white;
+    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.productsidebar{
+    border-top: 2px dashed grey;
+    border-bottom: 2px dashed grey;
+    flex: 2.5;
+    background: white;
+    height: 100%;
+}
+
+.cartitemswrapper{
+    background-color: white;
+    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+}
+
+
+
+.productsidebaritem{
+    margin-top: 15px;
+    padding: 5px;
+}
+
+.prodsidebaritemselect{
+    padding: 5px 3px;
+    width: 80%;
+}
+
+.prodjum{
+    width: 100%;
+    height: 150px;
+}
+
+.productdisplay{
+    flex: 9.5;
+}
+
+.productimg{
+    height: 65%;
+    width: 100%;
+}
+
+.productname{
+    text-align: center;
+}
+
+.productprice{
+    display: flex;
+    justify-content: center;
+}
+
+.productpricedev{
+
+}
+
+.productrating{
+    text-align: center;
+}
+.productdetials{
+    transform: translateY(101%);
+    position: fixed;
+    border-radius: 10px 0px;
+    border-top: 10px solid grey;
+    bottom: 0;
+    height: 90vh;
+    width: 100vw;
+    z-index: 300;
+    overflow-y: scroll;
+    margin: auto;
+    transition: all .5s ease;
+}
+
+
+.productdetailswrapper{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 0px;
+    background: white;
+    overflow-y: scroll;
+}
+
+.productoptions{
+    /* padding: 15px; */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+    margin-bottom: 15px;
+}
+
+.productamt{
+    padding: 10px;
+    border: 1px solid rgb(112, 136, 240);
+    min-width: 120px;
+}
+
+.ProductDescription{
+    max-width: 500px;
+}
+
+.productdetailsimg{
+    width: 500px;
+    height: 80%;
+    max-height: 500px;
+    max-width: 45vw;
+}
+
+.closeproductdetails{
+    position: fixed;
+    background: white;
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    z-index: 400;
+    right: 0;
+    left: 0;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    width: 60px;
+    margin: auto;
+}
+
+.cartitem{
+    margin-bottom: 10px;
+}
+
+.carttotals{
+    margin-top: 50px;
+    /* margin-right: 10px; */
+    width: 400px;
+    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    max-width: 90%;
+}
+
+.carttotalsitem{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+}
+
+.carttotalsbtn{
+    width: 400px;
+    max-width: 90%;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.carttotalswrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.shippingaddresss{
+    width: 100vw;
+    height: 100vh;
+}
+
+.shippingform{
+    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    width: 500px;
+    background: white;
+    max-width: 90vw;
+}
+
+
+
+.shippingformitem{
+    padding: 5px 0px;
+}
+
+.shippingbtn{
+    width: 500px;
+    max-width: 90vw;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.showproductsidenav{
+    display: none;
+}
+
+@media screen and (max-width: 576px){
+    .product{
+        width: 160px;
+    }
+
+    .carttotals{
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .productdisplay{
+        flex-direction: column;
+    }
+
+
+    .productsidebar{
+        border: none;
+        /* flex: 2.5; */
+        background: white;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        padding: 15px;
+        position: relative;
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
+    }
+    
+    .productsidenavwrapper{
+        position: fixed;
+        left: 0;
+        /* min-height: 80vh;
+        min-width: 80vw; */
+        z-index: 305;
+    }
+    .showproductsidenav{
+        display: inline;
+        position: absolute;
+        top: 0;
+        right: -30px;
+        color: blue;
+        background-color: white;
+    }
+    
+    .show{
+        transform: translateX(0);
+    }
+    
+    .productsidebaritem{
+        margin-top: 5px;
+        padding: 5px;
+    }
+}
