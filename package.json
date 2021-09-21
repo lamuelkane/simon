@@ -10,6 +10,10 @@
     "lint": "next lint",
     "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.11.2",
