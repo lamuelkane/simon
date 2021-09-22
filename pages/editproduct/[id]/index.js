@@ -17,7 +17,7 @@ import Head from 'next/head'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {GlobalContext} from '../context/Globalcontext'
+import {GlobalContext} from '../../../context/Globalcontext'
 
 
 function Copyright() {

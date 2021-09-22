@@ -4,7 +4,7 @@ import {useState, useRef, useEffect} from 'react'
 import axios from 'axios'
 import {useRouter} from 'next/router'
 
-const login = () => {
+const Login = () => {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const submitbtn = useRef()
@@ -58,4 +58,4 @@ const login = () => {
 }
 
 
-export default login;
+export default Login;
