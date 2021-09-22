@@ -20,7 +20,7 @@
     "@material-ui/lab": "^4.0.0-alpha.60",
     "axios": "^0.21.1",
     "material-ui-rating": "^4.2.0",
-    "next": "11.0.1",
+    "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-notifications-component": "^3.1.0",
