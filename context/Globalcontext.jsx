@@ -22,7 +22,7 @@ const [products, dispatchproducts] = useReducer(Products, [])
             dispatchproducts,
             categories,
             dispatchcategories,
-            sever:'http://localhost:5000',
+            sever:'https://advancedshoppingsever.herokuapp.com',
         }}>
             {children}
         </GlobalContext.Provider>
