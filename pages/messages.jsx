@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import {io} from 'socket.io-client'
 import styles from '../styles/messages.module.css'
 import Head from 'next/head'
@@ -8,9 +8,10 @@ import { Onlineuser } from '../components/Onlineuser'
 import SendIcon from '@material-ui/icons/Send';
 import Message from '../components/Message'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {GlobalContext} from '../context/GlobalContext'
 
 const Messages = () => {
-    let sever = 'http://localhost:5000'
+    let {sever} = useContext(GlobalContext)
     const [showcontent, setshowcontent] = useState(false)
     const socket = useRef()
     const scroll = useRef()

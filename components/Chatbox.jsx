@@ -9,9 +9,10 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Message from "./Message";
 import { v4 as uuidv4 } from 'uuid';
+import {GlobalContext} from '../context/GlobalContext'
 
 const Chatbox = () => {
-    let sever = 'http://localhost:5000'
+    let {sever} = useContext(Globalcontext)
     const [id, setid] = useState()
     const [show, setshow] = useState(false)
     const socket = useRef()
