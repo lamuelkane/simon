@@ -3,7 +3,7 @@ import Product from './Product';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import styles from '../styles/Dashboard.module.css'
-import Link from 'next/Link';
+import Link from 'next/link';
 import {GlobalContext} from '../context/Globalcontext'
 import { useState, useEffect, useContext } from 'react';
 import { setproducts} from "../actions/product";
