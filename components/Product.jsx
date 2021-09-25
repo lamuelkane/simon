@@ -7,7 +7,7 @@ import axios from 'axios'
 
 
 const Product = (props) => {
-    const {product, dispatchproduct} = useContext(GlobalContext)
+    const {product, dispatchproduct, sever} = useContext(GlobalContext)
 
 
     return (
@@ -17,7 +17,7 @@ const Product = (props) => {
         </div>
                 <img src={props.product?.image} alt=""  className={`${styles.productimg} pointer`} onClick={async(e )=> {
                     props.product.numviews ++
-                    const {data} = await axios.post('http://localhost:5000/api/products/updateproduct', props.product)
+                    const {data} = await axios.post(`${sever}/api/products/updateproduct`, props.product)
                     console.log(data)
                     dispatchproduct(setproduct(props.product))
             }}/>

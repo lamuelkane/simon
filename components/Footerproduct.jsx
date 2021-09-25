@@ -14,7 +14,7 @@ const Footerproduct = (props) => {
                 <div className={`flex column`}>
                     <span>{props.product.name}</span>
                     <span>${props.product.price.toFixed(2)}</span>
-                    <span>whatever</span>
+                    <span>{props.text}</span>
                 </div>
             </div>
         </>

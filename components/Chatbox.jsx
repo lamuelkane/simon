@@ -1,6 +1,6 @@
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import axios from 'axios'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import {io} from 'socket.io-client'
 import Notification from './Notification'
 import styles from '../styles/Chatbox.module.css'
@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {GlobalContext} from '../context/GlobalContext'
 
 const Chatbox = () => {
-    let {sever} = useContext(Globalcontext)
+    let {sever} = useContext(GlobalContext)
     const [id, setid] = useState()
     const [show, setshow] = useState(false)
     const socket = useRef()

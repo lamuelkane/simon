@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import styles from '../styles/Product.module.css'
-import {useState, useRef, useEffect} from 'react'
+import {useState, useRef, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {useRouter} from 'next/router'
+import {GlobalContext} from '../context/GlobalContext'
+
 
 const Login = () => {
+    const {sever} = useContext(GlobalContext)
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const submitbtn = useRef()
@@ -14,7 +17,7 @@ const Login = () => {
             email, password
         }
     try {
-        const {data} = await axios.post('http://localhost:5000/api/users/signin', user)
+        const {data} = await axios.post(`${sever}/api/users/signin`, user)
         localStorage.setItem('user', JSON.stringify(data))
          router.push('/dashboard')
     } catch (error) {

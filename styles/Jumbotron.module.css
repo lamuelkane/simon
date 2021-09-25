@@ -2,7 +2,7 @@
     width: 100%;
     height: 500px;
     position: relative;
-    margin-top: 3% !important;
+    margin-top: 30px !important;
 }
 
 .jumbbackground{
@@ -11,16 +11,17 @@
     position: absolute;
     top: -5%;
     left: 10px;
-    animation: scrolltotop 1s 5s infinite linear ;
-}
+    animation: scrolltotop 1s  linear ;
+  }
 
 .jumbtext{
     font-weight: bolder;
-    font-size: 110%;
+    font-size: 160%;
     position: absolute;
     top: 10%;
     right: 10%;
-    animation: scrollleft 1s 5s infinite linear ;
+    max-width: 500px;
+    animation: scrollleft 1s .5s forwards linear ;
 }
 
 .jumboverlay{
@@ -36,12 +37,14 @@
 @media screen and (max-width: 800px){
     .jumb{
         width: 100%;
-        height: 40vh;
+        height: 20vh;
+        /* margin-top: 15px !important;
+        margin-bottom: 3px !important; */
     }
 
     .jumbtext{
         font-weight: bolder;
-        font-size: 110%;
+        font-size: 60%;
         position: absolute;
         top: 10%;
         right: 0;
@@ -51,18 +54,23 @@
 
   @keyframes scrolltotop {
       from { 
-          transform: translateY(80%);
+          /* transform: translateY(80%); */
+          transform: scale(2.5);
       }
       to {
-          transform: translateY(0);
+          /* transform: translateY(0); */
+          transform: scale(1);
       }
   }
 
   @keyframes scrollleft {
     from { 
-        transform: translateX(80%);
+        /* transform: translateX(80%); */
+        transform: rotate3d(0, 1, 0.5, 3.142rad);
     }
     to {
-        transform: translateX(0);
+        /* transform: translateX(0); */
+        /* transform: rotate(0deg); */
+        transform: rotate3d(0);
     }
 }
