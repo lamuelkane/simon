@@ -3,7 +3,7 @@ import styles from '../styles/Product.module.css'
 import {useState, useRef, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {useRouter} from 'next/router'
-import {GlobalContext} from '../context/GlobalContext'
+import {GlobalContext} from '../context/Globalcontext'
 
 
 const Login = () => {
