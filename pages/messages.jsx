@@ -8,7 +8,7 @@ import { Onlineuser } from '../components/Onlineuser'
 import SendIcon from '@material-ui/icons/Send';
 import Message from '../components/Message'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import {GlobalContext} from '../context/GlobalContext'
+import {GlobalContext} from '../context/Globalcontext'
 
 const Messages = () => {
     let {sever} = useContext(GlobalContext)

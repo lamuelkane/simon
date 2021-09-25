@@ -9,7 +9,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Message from "./Message";
 import { v4 as uuidv4 } from 'uuid';
-import {GlobalContext} from '../context/GlobalContext'
+import {GlobalContext} from '../context/Globalcontext'
 
 const Chatbox = () => {
     let {sever} = useContext(GlobalContext)
