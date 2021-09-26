@@ -130,7 +130,7 @@ const Productreview = () => {
 
   useEffect(() => {
     getreviews()
-  })
+  }, [])
 
   return (
     <div >
