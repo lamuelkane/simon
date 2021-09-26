@@ -116,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard({data}) {
+const Productreview = ({data}) => {
   const {sever} = useContext(GlobalContext)
   const [reviews, setreviews] = useState(data)
   const classes = useStyles();
@@ -197,9 +197,11 @@ export default function Dashboard({data}) {
   );
 }
 
-Dashboard.defaultProps = {
+Productreview.defaultProps = {
 
 };
+
+export default Productreview
 
 export const getStaticProps = async () => {
   const {data } = await axios.get('https://advancedshopping.herokuapp.com/api/reviews/productreview')
