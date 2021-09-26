@@ -9,14 +9,15 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+import Link from 'next/link';
 import Dashboardsidebar from '../components/Dashboardsidebar';
 import Dashboardheader from '../components/Dashboardheader';
 import Head from 'next/head'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {GlobalContext} from '../context/Globalcontext'       
+import {GlobalContext} from '../context/Globalcontext'
+import {Notification} from '../components/Notification'
 
 
 function Copyright() {
@@ -127,6 +128,10 @@ export default function Dashboard() {
   const [show, setshow] = useState(true);
   const [options, setoptions] = useState([]);
 
+  const getcategories = async () => {
+    const {data} = await axios.get(`${sever}/api/products/categories`)
+    setcategories(data)
+  }
 
   let sendProduct = async(e) =>  {
     e.preventDefault()
@@ -145,20 +150,20 @@ export default function Dashboard() {
          }
    try {
    const {data} =  axios.post(`${sever}/api/products/createproduct`, product)
-  //  Notification({
-  //    title:"Product create success",
-  //    message:`Sucessfuly created product`,
-  //    type:"success",
-  //    container:"top-right",
-  //    insert:"top",
-  //    animationIn:"fadeInUp",
-  //    animationOut:"fadeOut",
-  //    duration:5000
-  //  })
+   Notification({
+     title:"Product create success",
+     message:`Sucessfuly created product`,
+     type:"success",
+     container:"top-right",
+     insert:"top",
+     animationIn:"fadeInUp",
+     animationOut:"fadeOut",
+     duration:5000
+   })
   //  notificationSound.current.play()
-  //  setTimeout(() => {
-  //    window.location.reload()
-  //  }, 3000);
+   setTimeout(() => {
+     window.location.reload()
+   }, 3000);
      console.log(data);
    } catch (error) {
      console.log(error);
@@ -208,6 +213,10 @@ export default function Dashboard() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+  useEffect(() => {
+    getcategories()
+  })
+
   return (
     <div className={classes.root}>
       <Head>
@@ -228,10 +237,9 @@ export default function Dashboard() {
                         <TextField id="standard-basic" label="Name" onChange={e => setproductName(e.target.value)} required/>
                         <TextField id="standard-basic" label="Price" onChange={e => setproductPrice(parseInt(e.target.value))} required/>
                         <select name="" id="" className={`padding`}  onChange={e => setcategory(e.target.value)} >
-                            <option>category 1</option>
-                            <option>category 2</option>
-                            <option>category 3</option>
-                            <option>category 4</option>
+                            {
+                              categories.map(cat => <option key={cat._id}>{cat.category}</option>)
+                            }
                         </select>
                         <input
                             accept="image/*"

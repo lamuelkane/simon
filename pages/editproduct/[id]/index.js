@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+import Link from 'next/link';
 import Dashboardsidebar from '../../../components/Dashboardsidebar';
 import Dashboardheader from '../../../components/Dashboardheader';
 import Head from 'next/head'
@@ -24,7 +24,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="/">
         Your Website
       </Link>{' '}
       {new Date().getFullYear()}
@@ -124,11 +124,18 @@ export default function Dashboard() {
   const [productDescription, setproductDescription] = useState(null)
   const [category, setcategory] = useState("edibles")
   const [productImage, setproductImage] = useState()
+  const [samplimage, setsampleimage] = useState()
   const [categories, setcategories] = useState([])
   const [show, setshow] = useState(true);
   const [options, setoptions] = useState([]);
   const router =  useRouter()
   const {id} = router.query
+
+
+  const getcategories = async () => {
+    const {data} = await axios.get(`${sever}/api/products/categories`)
+    setcategories(data)
+  }
 
   const getproduct = async(pro) => {
       const {data} = await axios.get(`${sever}/api/products/${pro}`)
@@ -137,12 +144,13 @@ export default function Dashboard() {
       setcategory(data.category)
       setproductDescription(data.description)
       setoptions(data.options)
-      setproductImage(`../../${data.image}`)
+      setsampleimage(`${data.image}`)
   }
 
   useEffect(() => {
     getproduct(id)
-  }, [])
+    getcategories()
+  }, [id])
 
   let sendProduct = async(e) =>  {
     e.preventDefault()
@@ -161,7 +169,7 @@ export default function Dashboard() {
              _id: '613afcfe1ebbd3207488e1f8',
          }
    try {
-   const {data} =  axios.post(`${sever}/api/products/updateproduct`, product)
+   const {data} = await  axios.post(`${sever}/api/products/updateproduct`, product)
   //  Notification({
   //    title:"Product create success",
   //    message:`Sucessfuly created product`,
@@ -245,10 +253,9 @@ export default function Dashboard() {
                         <TextField id="standard-basic" label="Name" value={productName} onChange={e => setproductName(e.target.value)} required/>
                         <TextField id="standard-basic" label="Price" value={productPrice} onChange={e => setproductPrice(parseInt(e.target.value))} required/>
                         <select name="" id="" className={`padding`} value={category} onChange={e => setcategory(e.target.value)} >
-                            <option>category 1</option>
-                            <option>category 2</option>
-                            <option>category 3</option>
-                            <option>category 4</option>
+                           {
+                              categories.map(cat => <option key={cat._id}>{cat.category}</option>)
+                            }
                         </select>
                         <input
                             accept="image/*"
@@ -262,7 +269,7 @@ export default function Dashboard() {
                            { !productImage?
                            <Button variant="contained" color="primary" component="span">
                                 Upload
-                            </Button> : <img src={productImage} alt="" height={80} width='80px' className='round' />
+                            </Button> : <img src={productImage || samplimage} alt="" height={80} width='80px' className='round' />
                             }
                         </label>
                     </div>

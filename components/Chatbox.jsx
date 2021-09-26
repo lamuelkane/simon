@@ -36,7 +36,7 @@ const Chatbox = () => {
             setid(localStorage.getItem('id'))
         }
         getmessage()
-        socket.current = io('ws://localhost:5001/')
+        socket.current = io('ws://advancedshoopinsocket.herokuapp.com/')
         socket.current.on('getmessage', msg => {
             msg.received = true
             unreadMessages.push(msg)

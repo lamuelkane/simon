@@ -12,7 +12,7 @@ const Jumbotron = () => {
                 text: `<div class='${styles.jumbtext}'>
                             <h1>ADVANCED SHOPPING CENTER</h1>
                             <p>Look Bright Everyday</p>
-                            <small>all you are looking for at a glance </small>
+                            <small class='curly x-large'>all you seek at a glance </small>
                         </div>`
             },
             {
@@ -20,7 +20,7 @@ const Jumbotron = () => {
                 text: `<div class='${styles.jumbtext}'>
                             <h1>ADVANCED SHOPPING CENTER</h1>
                             <p>Look Bright Everyday</p>
-                            <small>all you are looking for at a glance </small>
+                            <small class='curly x-large'>all you seek at a glance </small>
                         </div>`
             },
             {
@@ -28,7 +28,7 @@ const Jumbotron = () => {
                 text: `<div class='${styles.jumbtext}'>
                             <h1>ADVANCED SHOPPING CENTER</h1>
                             <p>Look Bright Everyday</p>
-                            <small>all you are looking for at a glance </small>
+                            <small class='curly x-large'>all you seek at a glance </small>
                         </div>`
             },
             {
@@ -36,7 +36,7 @@ const Jumbotron = () => {
                 text: `<div class='${styles.jumbtext}'>
                             <h1>ADVANCED SHOPPING CENTER</h1>
                             <p>Look Bright Everyday</p>
-                            <small>all you are looking for at a glance </small>
+                            <small class='curly x-large'>all you seek at a glance </small>
                         </div>`
             },
             {
@@ -44,7 +44,7 @@ const Jumbotron = () => {
                 text: `<div class='${styles.jumbtext}'>
                             <h1>ADVANCED SHOPPING CENTER</h1>
                             <p>Look Bright Everyday</p>
-                            <small>all you are looking for at a glance </small>
+                            <small class='curly x-large'>all you seek at a glance </small>
                         </div>`
             },
            

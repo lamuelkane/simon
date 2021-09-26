@@ -1,12 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300&family=Raleway&family=Tenali+Ramakrishna&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Ephesis&family=Rajdhani:wght@300&family=Rubik+Beastly&family=Scheherazade+New&family=Stick+No+Bills&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  /* font-family: 'Scheherazade New', serif; */
+  /* line-height: normal !important; */
+  /* line-height: 30%; */
 }
 
+.bold{
+  font-weight: bold;
+}
+
+.large{
+  font-size: large;
+}
+
+.larger{
+  font-size: larger;
+}
+.x-large{
+  font-size: x-large;
+}
+
+.xx-large{
+  font-size: xx-large;
+}
+
+.bolder{
+  font-weight: bolder;
+}
+
+.main{
+  font-family: 'Scheherazade New', serif;
+}
+.cracked{
+  font-family: 'Stick No Bills', sans-serif;
+}
+
+.curly{
+  font-family: 'Ephesis', cursive;
+}
+
+.bushy{
+  font-family: 'Rubik Beastly', cursive;
+}
 /* .curly-font{
   font-family: 'Lobster', cursive;
 }
@@ -236,6 +275,10 @@ a {
 }
 
 /* --------------------------------------- width ----------------------------------------------- */
+.blue{
+  color: blue;
+}
+
 
 .bluebg{
   background: rgba(0, 0, 255, 0.1);

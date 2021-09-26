@@ -23,7 +23,7 @@ const Product = (props) => {
             }}/>
             <div className={`flex justify-center column`}>
                         <span className={`${styles.productname}`}>{props.product?.name}</span>
-                        <div className={`${styles.productprice}`}>
+                        <div className={`${styles.productprice} blue`}>
                         {
                                props.product?.options[0]?
                                <div >{`$${props.product?.options.sort((a, b) => {

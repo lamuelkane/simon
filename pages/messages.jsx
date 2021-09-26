@@ -27,7 +27,7 @@ const Messages = () => {
     useEffect(() => {
         setadmin( localStorage.getItem('user')?JSON.parse(localStorage.getItem('user'))._id:'')
         getMessages()
-        socket.current = io('ws://localhost:5001/')
+        socket.current = io('ws://advancedshoopinsocket.herokuapp.com/')
        socket.current.on('getusers', (users) => {
         setusersonline(users)
        })

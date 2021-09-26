@@ -24,7 +24,7 @@ export default function Home() {
       <Header />
       <Jumbotron />
       <section className={`w-70 w-s-100 margin-auto padding`}>
-        <h2>Available Categories</h2>
+        <h2 className='curly xx-large text-center'>Available Categories</h2>
         <Categorypreview products={products} categories={categories} />   
       </section>
 
@@ -38,7 +38,7 @@ export default function Home() {
 
       <section className={`flex justify-around wrap padding ${styles.productpreview}`}>
         <div className={`w-80 w-s-100`}>
-            <h2>PREVIEW PRODUCTS</h2>
+            <h2 className=''>PREVIEW PRODUCTS</h2>
             <Productpreview products={products.slice(0, 10)} />   
         </div>
       </section>
@@ -53,18 +53,18 @@ export default function Home() {
 
       <div className={`bluebg`}>
       <section className={`padding`}>
-        <h2>HATS COLLECTION</h2>
+        <h2 className=''>HATS COLLECTION</h2>
         <div className="flex justify-around wrap">
           <div className={`w-60 w-s-100`}>
             <Swipers products={products.filter(prod => prod.category === 'hats')} />
           </div>
-            <div className={`flex justify-center align-center`}>
+            <div className={`flex justify-center `}>
                 <img src="./assets/images/logo.jpg" alt="" className={`round`} width='200px' height='200px'/>
             </div>   
         </div>
       </section>
       <section className={`padding`}>
-        <h2>SKIRTS COLLECTION</h2>
+        <h2 className=''>SKIRTS COLLECTION</h2>
         <div className="flex justify-around wrap">
           <div className={`w-60 w-s-100`}>
             <Swipers products={products.filter(prod => prod.category === 'skirts')} />
