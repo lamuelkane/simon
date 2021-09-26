@@ -215,7 +215,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     getcategories()
-  })
+  }, [])
 
   return (
     <div className={classes.root}>

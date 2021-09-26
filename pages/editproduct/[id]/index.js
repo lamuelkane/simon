@@ -154,10 +154,6 @@ export default function Dashboard() {
 
   let sendProduct = async(e) =>  {
     e.preventDefault()
-    if (!productImage) {
-      alert('please choose an image')
-      return
-    }
    let product = {
              name:productName,
              image:productImage,
