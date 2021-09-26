@@ -116,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Productreview = ({data}) => {
+const Productreview = () => {
   const {sever} = useContext(GlobalContext)
   const [reviews, setreviews] = useState([])
   const classes = useStyles();
@@ -196,3 +196,6 @@ const Productreview = ({data}) => {
     </div>
   );
 }
+
+
+export default Productreview
