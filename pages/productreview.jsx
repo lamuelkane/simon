@@ -17,7 +17,7 @@ import axios from 'axios'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Rating from '../components/Rating';
-import {useState, useContext} from 'react'
+import {useState, useContext, useEffect} from 'react'
 import { GlobalContext } from "../context/Globalcontext";
 
 
@@ -118,19 +118,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Productreview = ({data}) => {
   const {sever} = useContext(GlobalContext)
-  const [reviews, setreviews] = useState(data)
+  const [reviews, setreviews] = useState([])
   const classes = useStyles();
   const [open, setOpen] = useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+
+  const getreviews = async() => {
+    const {data } = await axios.get(`${sever}/api/reviews/productreview`)
+    setreviews(data)
+  }
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  
-
+  useEffect(() => {
+    getreviews()
+  })
 
   return (
     <div >
@@ -195,19 +195,4 @@ const Productreview = ({data}) => {
       </main>
     </div>
   );
-}
-
-Productreview.defaultProps = {
-
-};
-
-export default Productreview
-
-export const getStaticProps = async () => {
-  const {data } = await axios.get('https://advancedshopping.herokuapp.com/api/reviews/productreview')
-  return {
-      props: {
-          data,
-      }
-  }
 }
