@@ -11,6 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import axios from 'axios'
+import {Notification} from '../components/Notification'
 
 
 const Payment = () => {
@@ -31,20 +32,29 @@ const Payment = () => {
 
         cartitems.map(item => {
             let product =  products.find(prod => prod._id === item.id)
-            product.lastlyOredered = new Date()
+            product.lastlyOrdered = new Date()
             product.numOrders ++
-
             productsorderd.push(product)
         })
         const {data} = await axios.post(`${sever}/order/getorder`, order)
         const {data: res} = await axios.post(`${sever}/api/products/updateproducts`, productsorderd)
+        Notification({
+            title:"ORDER SUCCESS",
+            message:`Sucessfuly ordered products, you will receive an email from one of our support team members instructing you hoe to proceed with payment`,
+            type:"success",
+            container:"top-right",
+            insert:"top",
+            animationIn:"fadeInUp",
+            animationOut:"fadeOut",
+            duration:10000
+          })
         localStorage.removeItem('cartitems')
         router.push('/')
     }
 
     useEffect(() => {
         setshippingaddress(JSON.parse(localStorage.getItem('address')))
-        if(!JSON.parse(localStorage.getItem('address'))) router.push('shippingaddress')
+        if(!JSON.parse(localStorage.getItem('address')) || !cartitems[0]) router.push('/shippingaddress')
     }, [])
 
     return (
@@ -55,7 +65,7 @@ const Payment = () => {
                 <link rel="icon" href="./assets/images/logo.jpg" />
             </Head>
             <Header />
-            <div className={`${styles.prodjum} flex justify-center align-center`}>
+            <div className={`${styles.prodjum} curly xx-large flex justify-center align-center`}>
                         Payment
             </div>
             <div >
@@ -69,7 +79,6 @@ const Payment = () => {
                                     <FormControlLabel value="paypal" control={<Radio />} label="paypal" />
                                     <FormControlLabel value="Bitcoin" control={<Radio />} label="Bitcoin" />
                                     <FormControlLabel value="Stripe" control={<Radio />} label="Stripe" />
-                                    <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
                                 </RadioGroup>
                             </FormControl>
                             </div>
@@ -118,7 +127,7 @@ const Payment = () => {
                         </div>
                     </div>
                 </div>
-                <button className={`${styles.shippingbtn} margin-y w-100 pointer bluebg`} onClick={makeorder}>MAKE PAYMENT</button>
+                <button className={`${styles.shippingbtn} main-bg white margin-y w-100 pointer bluebg`} onClick={makeorder}>MAKE PAYMENT</button>
                 </div>
                
                 </div>

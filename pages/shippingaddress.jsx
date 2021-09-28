@@ -94,7 +94,7 @@ const Shippingaddress = () => {
                         </div>
                         <button className="hide" ref={submit}></button>
                     </form>
-                     <button className={`${styles.shippingbtn} pointer bluebg`} onClick={e => submit.current.click()}>Make Payment</button>
+                     <button className={`${styles.shippingbtn} main-bg white pointer bluebg`} onClick={e => submit.current.click()}>Make Payment</button>
                 </div>
             </div>
         </>

@@ -49,7 +49,7 @@ const Header = (props) => {
         <ReactNotification />
         <Chatbox />
         <Totop />
-            <div className={`${styles.sideNav} ${!showsidenav && styles.hidesidenav}`}>
+            <div className={`${styles.sideNav} main-bg white ${!showsidenav && styles.hidesidenav}`}>
                 <div className={`flex justify-between align-center`}>
                      <span>MENU</span>
                      <div onClick={e => setshowsidenav(false)} className={`iconholder`}>
@@ -90,13 +90,13 @@ const Header = (props) => {
                     <div className={`${styles.headertopwraper}`}>
                         <div className={`${styles.headertop} wrap`}>
                             <div className={`flex justify-between wrap`}>
-                                <div  className={`flex justify-between padding-x align-center`}>
+                                <div  className={`flex justify-between white padding-x align-center`}>
                                     <CallIcon />
-                                    <a href="tel:+237671738952" className={`margin-x link`}>671738952</a>
+                                    <a href="tel:+237671738952" className={`margin-x white link`}>671738952</a>
                                 </div>
-                                <div className={`flex justify-between align-center padding-x`}>
+                                <div className={`flex white justify-between align-center padding-x`}>
                                     <EmailIcon />
-                                    <a href="mailto:ashulemuel@gmail.com" className={`margin-x link`}>ashulemuel@gmail.com</a>
+                                    <a href="mailto:ashulemuel@gmail.com" className={`margin-x white link`}>ashulemuel@gmail.com</a>
                                 </div>
                             </div>
                             <div className={`hides`}>15% off! Coupon Code: ACKLSI  <span className='link'><Link href={{ pathname: '/shop'}}>Shop Now</Link></span></div>

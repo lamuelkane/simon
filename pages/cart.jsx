@@ -24,7 +24,7 @@ const Cart = () => {
             </Head>
             <Header />
             <section className={``}>
-                <div className={`${styles.prodjum} flex justify-center align-center`}>
+                <div className={`${styles.prodjum} flex justify-center curly xx-large align-center`}>
                         home/cart
                 </div>
             </section>
@@ -53,7 +53,7 @@ const Cart = () => {
                                     <div>${(cartitems.reduce((a, c) => a + c.price * c.amount, 0) + (cartitems.reduce((a, c) => a + c.price * c.amount, 0) * 20/100)).toFixed(2)}</div>
                                 </div>
                             </div>
-                            <button className={`${styles.carttotalsbtn} bluebg pointer`} onClick={e => router.push('/shippingaddress')}>PROCEED TO CHECKOUT</button>
+                            <button className={`${styles.carttotalsbtn} main-bg white bluebg pointer`} onClick={e => router.push('/shippingaddress')}>PROCEED TO CHECKOUT</button>
                         </div>
                 </div>
             </section > : <div className="margin-bottom-100">

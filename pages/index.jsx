@@ -36,7 +36,7 @@ export default function Home() {
         </button>
       </div>
 
-      <section className={`flex justify-around wrap padding ${styles.productpreview}`}>
+      <section className={`flex justify-around wrap padding  ${styles.productpreview}`}>
         <div className={`w-80 w-s-100`}>
             <h2 className=''>PREVIEW PRODUCTS</h2>
             <Productpreview products={products.slice(0, 10)} />   

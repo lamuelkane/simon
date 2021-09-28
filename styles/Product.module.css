@@ -2,8 +2,14 @@
     height: 260px;
     width: 180px;
     background: white;
-    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5); */
     margin-bottom: 10px;
+    transition: all .5s ease;
+}
+
+.product:hover{
+    transform: scale(1.002);
+    box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);
 }
 
 .productsidebar{
@@ -76,6 +82,15 @@
     transition: all .5s ease;
 }
 
+.sidenavitem:hover{
+    background: black;
+    color: white;
+}
+
+.sidenavitem{
+    cursor: pointer;
+    font-weight: bolder !important;
+}
 
 .productdetailswrapper{
     position: relative;
@@ -129,12 +144,19 @@
 
 .cartitem{
     margin-bottom: 10px;
+    border-bottom: 1px solid green;
+    padding-bottom: 5px;
+}
+
+.cartitemimage{
+    max-height: 60px;
+    max-width: 60px;
 }
 
 .carttotals{
     margin-top: 50px;
     /* margin-right: 10px; */
-    width: 400px;
+    width: 300px;
     box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);
     padding: 20px;
     max-width: 90%;
@@ -143,12 +165,13 @@
 .carttotalsitem{
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px;
+    padding: 10px 10px;
+    border-bottom: 1px solid green;
     margin-bottom: 10px;
 }
 
 .carttotalsbtn{
-    width: 400px;
+    width: 300px;
     max-width: 90%;
     padding: 15px;
     margin-top: 10px;
@@ -207,7 +230,6 @@
 
     .productsidebar{
         border: none;
-        /* flex: 2.5; */
         background: white;
         display: flex;
         justify-content: center;
@@ -223,10 +245,11 @@
     .productsidenavwrapper{
         position: fixed;
         left: 0;
-        /* min-height: 80vh;
-        min-width: 80vw; */
         z-index: 305;
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
     }
+
     .showproductsidenav{
         display: inline;
         position: absolute;

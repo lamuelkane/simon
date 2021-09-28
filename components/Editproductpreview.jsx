@@ -52,7 +52,7 @@ const Editproductpreview = () => {
 
     useEffect(() => {
             getproducts()
-    },[products, pagesVited])
+    },[])
 
     const handleChange = (event, value) => {
         setpageNumber(value)
@@ -74,7 +74,7 @@ const Editproductpreview = () => {
                         }}>
                             <DeleteIcon />
                         </div>
-                        <div className={`margin-bottom link`}>
+                        <div className={`margin-bottom pointer link`}>
                         <Link color="inherit" href={`/editproduct/${prod._id}`}>       
                             <EditIcon />
                         </Link>

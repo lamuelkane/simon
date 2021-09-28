@@ -11,8 +11,16 @@ import LoadingBox from '../components/LoadingBox'
 
 const Shop = (props) => {
   const {products} = useContext(GlobalContext)
-
+  const [clone1, setclone1] = useState([])
+  const [clone2, setclone2] = useState([])
+  const [clone3, setclone3] = useState([])
   const route = useRouter()
+
+  useEffect(() => {
+    setclone1(products)
+    setclone2(products)
+    setclone3(products)
+  }, [products])
 
 
     return (
@@ -24,7 +32,7 @@ const Shop = (props) => {
             </Head>
             <Header />
             <section className={`hides`}>
-                <div className={`${styles.prodjum} flex justify-center align-center`}>
+                <div className={`${styles.prodjum} flex justify-center curly xx-large align-center`}>
                         home/shop
                 </div>
             </section>
@@ -32,12 +40,14 @@ const Shop = (props) => {
             
       <div className={`bluebg`}>
       <section className={`padding`}>
-        <h2>MOST VIEWED PRODUCTS</h2>
+        <h2>MOST REVIEWED PRODUCTS</h2>
         <div className="flex justify-around wrap">
           <div className={`w-90 w-s-100`}>
           {
             products[0]?
-           <Swipers products={products.filter(prod => prod.category === 'skirts')} />
+           <Swipers products={clone1.sort((a, b) => {
+            return b.numReviews - a.numReviews;
+        })} />
            : <LoadingBox />
            }
           </div>
@@ -49,19 +59,27 @@ const Shop = (props) => {
           <div className={`w-90 w-s-100`}>
           {
             products[0]?
-           <Swipers products={products.filter(prod => prod.category === 't-shirts')} />
+           <Swipers products={clone2.sort((a, b) => {
+            let older = new Date(a.lastlyreviewed).getTime()
+            let newer = new Date(b.lastlyreviewed).getTime()
+            return older > newer? -1 : 1
+        })} />
            : <LoadingBox />
            }
           </div> 
         </div>
       </section>
       <section className={`padding`}>
-        <h2>MOST ORDERD PRODUCTS</h2>
+        <h2>NEW STOCKS</h2>
         <div className="flex justify-around wrap">
           <div className={`w-90 w-s-100`}>
           {
             products[0]?
-           <Swipers products={products.filter(prod => prod.category === 'shoes')} />
+           <Swipers products={clone3.sort((a, b) => {
+            let older = new Date(a.createdAt).getTime()
+            let newer = new Date(b.createdAt).getTime()
+            return older > newer? -1 : 1
+        })} />
            : <LoadingBox />
            }
           </div> 

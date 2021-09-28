@@ -5,10 +5,6 @@ import Product from './Product';
 
 const Productpreview = ({products}) => {
 
-    useEffect(() => {
-     console.log(products)
-    }, [products])
-
     return (
         <>
             <div className="flex justify-between w-s-100 wrap">

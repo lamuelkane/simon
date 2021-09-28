@@ -7,9 +7,11 @@ import {setproducts} from "../actions/product";
 import Pagination from '@material-ui/lab/Pagination';
 import {search} from './Search'
 import LoadingBox from './LoadingBox'
+import Footerproduct from './Footerproduct';
 
 const Productdisplay = () => {
-    const {products, categories, dispatchproducts} = useContext(GlobalContext)
+    const [products, setproducts] = useState([])
+    const {products : createdproducts, categories, dispatchproducts} = useContext(GlobalContext)
     const [show, setshow] = useState(false)
     const [sortbyprice, setsortbyprice] = useState(false)
     const [low, setlow] = useState(true)
@@ -26,36 +28,9 @@ const Productdisplay = () => {
     let pagesVited = pageNumber * productperpage
     
     const [productList, setproductList] = useState([])
-    let setproducts = () => {
-      setproductList(products.sort((a, b) => {
-        if (sortbyprice) {
-          if(low) return a.price - b.price;
-          if(!low) return b.price - a.price;
-        }
-        if (sortbyrating) {
-          if(low) return a.rating - b.rating;
-          if(!low) return b.rating - a.rating;
-        }
-        if (sortbymostordered) {
-          return b.numOrders - a.numOrders;
-        }
-        if (sortbyrecentlyordered) {
-          let older = new Date(a.lastlyOrdered).getTime()
-          let newer = new Date(b.lastlyOrdered).getTime()
-          return older > newer? -1 : 1
-        }
-        if (sortbymostreviewed) {
-          return b.numReviews - a.numReviews;
-        }
-        if (sortbymostviewed) {
-          return b.numviews - a.numviews
-        }
-        if (sortbyrecentlyreviewed) {
-          let older = new Date(a.lastlyreviewed).getTime()
-          let newer = new Date(b.lastlyreviewed).getTime()
-          return older > newer? -1 : 1
-        }
-         if(sortbyname) {
+      useEffect(() => {
+        setproducts(createdproducts)
+        setproductList(products.sort((a, b) => {
           let fa = a.name.toLowerCase(),
           fb = b.name.toLowerCase();
           if (fa < fb) {
@@ -64,135 +39,9 @@ const Productdisplay = () => {
           if (fa > fb) {
               return 1;
           }
-         }
-        return 0;
-      }).slice(pagesVited, pagesVited + 10))
-    }
-      useEffect(() => {
-        setproducts()
-        console.log(productList)
-      },[products, pagesVited])
-
-
-    let sortproducts = (e) => {
-        if (e.target.value === "High Price") {
-          setsortbyprice(true)
-          setlow(false)
-          setsortbyrating(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-    
-        if (e.target.value === "Low Price") {
-          setsortbyprice(true)
-          setlow(true)
-          setsortbyrating(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-        if (e.target.value === "Default Sorting") {
-          setsortbyprice(false)
-          setsortbyrating(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-        if (e.target.value === "High Rating") {
-          setsortbyrating(true)
-          setlow(false)
-          setsortbyprice(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-            return
-        }
-        if (e.target.value === "Low Rating") {
-          setsortbyrating(true)
-          setlow(true)
-          setsortbyprice(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-        if (e.target.value === "recentlyordered") {
-          setsortbyrating(false)
-          setsortbyprice(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(true)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-        if (e.target.value === "mostreviewed") {
-          setsortbyrating(false)
-          setsortbyprice(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(true)
-          setproducts()
-          return
-        }
-        if (e.target.value === "mostordered") {
-          setsortbyrating(false)
-          setsortbyprice(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(true)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-        if (e.target.value === "recentlyreviewed") {
-          setsortbyrating(false)
-          setsortbyprice(false)
-          setsortbymostviewed(false)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(true)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-        if (e.target.value === "mostviewed") {
-          setsortbyrating(false)
-          setsortbyprice(false)
-          setsortbymostviewed(true)
-          setsortbyrecentlyordered(false)
-          setsortbyrecentlyreviewed(false)
-          setsortbymostordered(false)
-          setsortbymostreviewed(false)
-          setproducts()
-          return
-        }
-        
-      }
-
+      }).slice(pagesVited, pagesVited + 20))
+        setclone(products)
+      },[pagesVited, createdproducts])
       const handleChange = (event, value) => {
         setpageNumber(value)
       };
@@ -201,73 +50,126 @@ const Productdisplay = () => {
         <>
             <section className={`padding bluebg`}>
                 <div className={`flex justify-between ${styles.productdisplay}`}>
-                <div className={`${styles.productsidenavwrapper}`}>
+                <div className={`${styles.productsidenavwrapper} ${show && styles.show}`}>
                     <div className={`${styles.productsidebar} margin-right ${show && styles.show}`}>
                         <div className={`${styles.productsidebaritem}`}>
-                            <div className={`${styles.description}`}>
+                            <div className={`${styles.description} white margin-bottom main-bg`}>
                                 SEARCH PRODUCTS
                             </div>
                             <div>
                                 <input type="text" className={`${styles.prodsidebaritemselect}`} onChange={e => {
                                   clearTimeout(query)
+                                  const {value} = e.target
                                   let query = setTimeout(() => {
-                                    dispatchproducts(setproducts(search(products, e.target.value)))
-                                    console.clear()
-                                    console.log(e.target.value, products, search(products, e.target.value))
+                                    setproductList(search(products, value).slice(0, 20))
                                   }, 3000);
                                 }} />
                             </div>
                         </div>
                         <div className={`${styles.productsidebaritem}`}>
-                            <div className={`${styles.description}`}>
+
+                            <div className={`${styles.description} white main-bg`}>
                                   SORT PRODUCTS BY
                             </div>
                             <div>
-                                <select name="select"  className={`${styles.prodsidebaritemselect}`} onChange={sortproducts}>
-                                  <option selected="selected">Default Sorting</option>
-                                  <option>Low Rating</option>
-                                  <option>High Rating</option>
-                                  <option>High Price</option>
-                                  <option>Low Price</option>
-                                  <option>recentlyordered</option>
-                                  <option>mostreviewed</option>
-                                  <option>mostordered</option>
-                                  <option>recentlyreviewed</option>
-                                  <option>mostviewed</option>
-                                </select>
+                                <div name="select">
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                    setproductList(products.sort((a, b) => {
+                                        return a.rating - b.rating;
+                                    }).slice(0, 20))
+                                  }}>RATING(lowest)</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                     setproductList(products.sort((a, b) => {
+                                      return b.rating - a.rating;
+                                      }).slice(0,  20))
+                                  }}>RATING(highest)</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => { setsortbyprice(true)
+                                    setproductList(products.sort((a, b) => {
+                                          return b.price - a.price;
+                                      }).slice(0,  20))}}>PRICE(high - low)</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                      setproductList(products.sort((a, b) => {
+                                         return a.price - b.price;
+                                      }).slice(0,  20))
+                                  }}>PRICE(low - high)</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                   setproductList(products.sort((a, b) => {
+                                          let older = new Date(a.lastlyOrdered).getTime()
+                                          let newer = new Date(b.lastlyOrdered).getTime()
+                                          return older > newer? -1 : 1
+
+                                      }).slice(0, 20))
+                                  }}>LASTLY ORDERED</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                     setproductList(products.sort((a, b) => {
+                                      return b.numReviews - a.numReviews;
+                                  
+                                  }).slice(0, 20))
+                                  }}>MOST REVIEWED</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                    setproductList(products.sort((a, b) => {
+                                        return b.numOrders - a.numOrders;
+                                    }).slice(0, 20))
+                                  }}>MOST ORDERED</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                  setproductList(products.sort((a, b) => {
+                                      let older = new Date(a.lastlyreviewed).getTime()
+                                      let newer = new Date(b.lastlyreviewed).getTime()
+                                      return older > newer? -1 : 1
+                                  }).slice(0, 20))
+                                  }}>LASTLY RATED</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                    setproductList(products.sort((a, b) => {
+                                    return b.numviews - a.numviews
+                                }).slice(0, 20))
+                                  }}>MOSTVIEWED</div>
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
+                                    setproductList(products.sort((a, b) => {
+                                    let fa = a.name.toLowerCase(),
+                                        fb = b.name.toLowerCase();
+                                        if (fa < fb) {
+                                            return -1;
+                                        }
+                                        if (fa > fb) {
+                                            return 1;
+                                        }
+                                }).slice(0, 20))
+                                  }}>NAME</div>
+                                </div>
                             </div>  
                         </div>
                         <div className={`${styles.productsidebaritem}`}>
-                            <div className={`${styles.description}`}>
-                                SELECT CATEGORY
+
+                            <div className={`${styles.description} white main-bg`}>
+                                AVAILABLE CATEGORY
                             </div>
                             <div>
-                                <select name="select"  className={`${styles.prodsidebaritemselect}`}>
+                                <div className={`${styles.prodsidebaritemselect}`}>
                                     {
                                       categories.map(cat => (
-                                        <option value={cat.category} key={cat._id}>{cat.category}</option>
+                                        <div className={`${styles.sidenavitem}`} value={cat.category} key={cat._id}>{cat.category}</div>
                                       ))                                      
                                     }
-                                </select>
+                                </div>
                             </div>
                         </div>
-                        <div className={`${styles.productsidebaritem}`}>
-                            <div className={`${styles.description}`}>
-                                section description
+                        <div className={`${styles.productsidebaritem} margin-bottom`}>
+                            <div className={`${styles.description} white main-bg`}>
+                                BEST SELLERS
                             </div>
                             <div>
-                                <select name="select"  className={`${styles.prodsidebaritemselect}`}>
-                                    <option value="">option 1</option>
-                                    <option value="">option 1</option>
-                                    <option value="">option 1</option>
-                                    <option value="">option 1</option>
-                                    <option value="">option 1</option>
-                                </select>
+                                <div name="select"  className={`${styles.prodsidebaritemselect}`}>
+                                    {
+                                      products.slice(0, 5).map(prod => (
+                                        <Footerproduct key={prod?._id} text='' product={prod} />
+                                      ))
+                                    }
+                                </div>
                             </div>
                         </div>
                         <Pagination count={Math.floor(products.length / 10)} page={pageNumber} onChange={handleChange} siblingCount={0} color="primary"/>
-                        <div className={`${styles.showproductsidenav}`} onClick={e => setshow(!show)}> <DehazeIcon /> </div>
                     </div>
+                        <div className={`${styles.showproductsidenav}`} onClick={e => setshow(!show)}> <DehazeIcon /> </div>
                 </div> 
                     <div className={`${styles.productdisplay}`}>
                         {

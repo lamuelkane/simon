@@ -118,14 +118,14 @@ const Chatbox = () => {
 
     return (
         <>
-            {!show &&  <div className={`${styles.chatboxicon} pointer ${show && 'hide'}`} onClick={e => setshow(true)}>
+            {!show &&  <div className={`${styles.chatboxicon} white main-bg pointer ${show && 'hide'}`} onClick={e => setshow(true)}>
                 <QuestionAnswerIcon />
             </div>}
         <div className={`${styles.chatboxwrapper}`}>  
             <div className={`${styles.chatboxcontainer} ${show ? styles.show : styles.hide}`}>
-            <div className={`${styles.chatboxclose} pointer`} onClick={e => setshow(false)}><ExpandMoreIcon /></div>
-                <div className={`${styles.chatboxtop}`}>
-                    <div className={`${styles.chatboxtopicon} flex align-center`}>
+            <div className={`${styles.chatboxclose} white main-bg pointer`} onClick={e => setshow(false)}><ExpandMoreIcon /></div>
+                <div className={`${styles.chatboxtop} main-bg`}>
+                    <div className={`${styles.chatboxtopicon} main-bg flex white align-center`}>
                         <AccountCircleIcon />
                     </div>   
                     <div className={`${styles.chatboxtoptext}`}>What's on your mind</div>
@@ -143,9 +143,9 @@ const Chatbox = () => {
                            ))
                        }
                     </div>
-                    <div className={`${styles.chattextchat}`}>
+                    <div className={`${styles.chattextchat} main-bg`}>
                         <textarea  className={`${styles.chattextchattext} padding`} placeholder='What Is On Your Mind' value={message} onChange={e => setMessage(e.target.value)} ></textarea>
-                        <button  className={`${styles.chattextchatbtn}`} onClick={sendMessage} >
+                        <button  className={`${styles.chattextchatbtn} white `} onClick={sendMessage} >
                             <SendIcon />
                         </button>
                     </div>

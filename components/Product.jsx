@@ -7,7 +7,7 @@ import axios from 'axios'
 
 
 const Product = (props) => {
-    const {product, dispatchproduct, sever} = useContext(GlobalContext)
+    const {dispatchproduct, sever} = useContext(GlobalContext)
 
 
     return (
@@ -18,11 +18,10 @@ const Product = (props) => {
                 <img src={props.product?.image} alt=""  className={`${styles.productimg} pointer`} onClick={async(e )=> {
                     props.product.numviews ++
                     const {data} = await axios.post(`${sever}/api/products/updateproduct`, props.product)
-                    console.log(data)
                     dispatchproduct(setproduct(props.product))
             }}/>
             <div className={`flex justify-center column`}>
-                        <span className={`${styles.productname}`}>{props.product?.name}</span>
+                        <span className={`${styles.productname} main-color white`}>{props.product?.name}</span>
                         <div className={`${styles.productprice} blue`}>
                         {
                                props.product?.options[0]?

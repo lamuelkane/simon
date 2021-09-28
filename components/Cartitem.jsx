@@ -12,9 +12,9 @@ const Cartitem = (props) => {
         <>
             <div>
                  <div className={`flex justify-between align-center ${styles.cartitem} bluebg padding-x`}>
-                    <img src={props.cartitem.image} alt="" width='60px' hright='60px'/>
+                    <img src={`${props.cartitem.image}`} className={`hides ${styles.cartitemimage}`} alt="" width='60px' hright='60px'/>
                     <div>{props.cartitem.name}</div>
-                    <div>${props.cartitem.price.toFixed(2)}</div>
+                    <div className='blue'>${props.cartitem.price.toFixed(2)}</div>
                     <select name="" id="" value={props.cartitem.amount} onChange={e => {
                         dispatchcartitems(changeitemamount(cartitems, props.cartitem.id, parseInt(e.target.value)))
                         dispatchcartitems(resetcartitems())
@@ -24,7 +24,7 @@ const Cartitem = (props) => {
                              [...Array(props.cartitem.countInStock).keys()].map(num => <option key={num} value={num + 1}>{num + 1} </option>)
                         }
                     </select>
-                    <div>${(props.cartitem.price * props.cartitem.amount).toFixed(2)}</div>
+                    <div  className='blue' >${(props.cartitem.price * props.cartitem.amount).toFixed(2)}</div>
                     <div className={`iconholder pointer`} onClick={e => {
                         
                         dispatchcartitems(removecartitem(props.cartitem, cartitems))

@@ -17,7 +17,7 @@ const Login = () => {
             email, password
         }
     try {
-        const {data} = await axios.post(`https://advancedshoppingsever.herokuapp.com/api/users/signin`, user)
+        const {data} = await axios.post(`${sever}/api/users/signin`, user)
         localStorage.setItem('user', JSON.stringify(data))
          router.push('/dashboard')
     } catch (error) {
@@ -53,7 +53,7 @@ const Login = () => {
                         </div>
                         <button className={` hide`} ref={submitbtn}>login</button>
                     </form>
-                    <button className={`${styles.shippingbtn} pointer bluebg`} onClick={e => submitbtn.current.click()}  >login</button>
+                    <button className={`${styles.shippingbtn} main-bg white pointer bluebg`} onClick={e => submitbtn.current.click()}  >login</button>
                 </div>
             </div>
         </>

@@ -38,6 +38,9 @@ let sort = (arr, midindex) => {
                               arr[i].index++
                           }
                     if(searchterm === midindex) {
+                      if(arr[i].name.includes(midindex)) {
+                            arr[i].index = 0
+                        }
                        presorted[arr[i].index].push(arr[i])
                        arr[i].index = 0
                     }
@@ -51,8 +54,9 @@ export const search = (products, term) => {
   if (term === '') {
       return products
   }
-let p = sort(products, term)
+// let p = sort(products, term)
+// console.log(sort(products, term) , term)
 
-  return p
+  return sort(products, term)
 
 }

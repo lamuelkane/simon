@@ -279,9 +279,16 @@ a {
   color: blue;
 }
 
+.main-bg{
+  background: rgb(10, 27, 10) !important;
+}
+
+.main-color{
+  background: rgb(10, 27, 10) !important;
+}
 
 .bluebg{
-  background: rgba(0, 0, 255, 0.1);
+  /* background: rgba(148, 218, 148, 0.2) !important; */
 }
 
 .totop{
@@ -308,7 +315,7 @@ a {
 }
 
 .white{
-  color: white;
+  color: white !important;
 }
 
 .bold{
