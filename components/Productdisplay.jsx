@@ -13,15 +13,6 @@ const Productdisplay = () => {
     const [products, setproducts] = useState([])
     const {products : createdproducts, categories, dispatchproducts} = useContext(GlobalContext)
     const [show, setshow] = useState(false)
-    const [sortbyprice, setsortbyprice] = useState(false)
-    const [low, setlow] = useState(true)
-    const [sortbyrating, setsortbyrating] = useState(false)
-    const [sortbyrecentlyordered, setsortbyrecentlyordered] = useState(false)
-    const [sortbymostreviewed, setsortbymostreviewed] = useState(false)
-    const [sortbymostordered, setsortbymostordered] = useState(false)
-    const [sortbyrecentlyreviewed, setsortbyrecentlyreviewed] = useState(false)
-    const [sortbymostviewed, setsortbymostviewed] = useState(true)
-    const [sortbyname, setsortbyname] = useState(false)
     const [clone, setclone] = useState([])
     const [pageNumber, setpageNumber] = useState(1)
     const [productperpage, setproductperpage] = useState(10)
@@ -40,7 +31,7 @@ const Productdisplay = () => {
               return 1;
           }
       }).slice(pagesVited, pagesVited + 20))
-        setclone(products)
+        setclone(createdproducts)
       },[pagesVited, createdproducts])
       const handleChange = (event, value) => {
         setpageNumber(value)
@@ -83,15 +74,15 @@ const Productdisplay = () => {
                                       return b.rating - a.rating;
                                       }).slice(0,  20))
                                   }}>RATING(highest)</div>
-                                  <div className={`${styles.sidenavitem}`} onClick={e => { setsortbyprice(true)
+                                  <div className={`${styles.sidenavitem}`} onClick={e => {
                                     setproductList(products.sort((a, b) => {
                                           return b.price - a.price;
-                                      }).slice(0,  20))}}>PRICE(high - low)</div>
+                                      }).slice(0,  20))}}>PRICE(high -> low)</div>
                                   <div className={`${styles.sidenavitem}`} onClick={e => {
                                       setproductList(products.sort((a, b) => {
                                          return a.price - b.price;
                                       }).slice(0,  20))
-                                  }}>PRICE(low - high)</div>
+                                  }}>PRICE(low -> high)</div>
                                   <div className={`${styles.sidenavitem}`} onClick={e => {
                                    setproductList(products.sort((a, b) => {
                                           let older = new Date(a.lastlyOrdered).getTime()
@@ -160,8 +151,10 @@ const Productdisplay = () => {
                             <div>
                                 <div name="select"  className={`${styles.prodsidebaritemselect}`}>
                                     {
-                                      products.slice(0, 5).map(prod => (
-                                        <Footerproduct key={prod?._id} text='' product={prod} />
+                                      clone.sort((a, b) => {
+                                        return b.numOrders - a.numOrders;
+                                    }).slice(0, 5).map(prod => (
+                                        <Footerproduct key={prod?._id} product={prod} text={`ordered ${prod.numOrders} ${prod.numOrders > 1? 'times' : 'time'} `} />
                                       ))
                                     }
                                 </div>

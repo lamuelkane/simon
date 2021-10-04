@@ -86,7 +86,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb{
-  background: rgb(205, 205, 206);
+  background: rgb(10, 27, 10) ;
 } 
 
 /* -------------------------------------- flex styles ------------------------------------- */
@@ -126,10 +126,10 @@ a {
   justify-content: space-between;
 }
 
-img{
+/* img{
   height: 60px;
   width: 60px
-}
+} */
 
 table{
   width: 100%;
@@ -591,6 +591,11 @@ input{
   flex-grow: 1;
   height: 100vh;
   overflow: auto;
+}
+
+.fottersearch{
+  overflow-y: scroll;
+  height: 300px;
 }
 
 .center{
