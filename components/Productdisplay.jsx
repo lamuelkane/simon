@@ -1,3 +1,4 @@
+
 import styles from '../styles/Product.module.css'
 import Productpreview from './Productpreview';
 import DehazeIcon from '@material-ui/icons/Dehaze';
@@ -8,6 +9,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import {search} from './Search'
 import LoadingBox from './LoadingBox'
 import Footerproduct from './Footerproduct';
+import {troncate} from './troncate'
 
 const Productdisplay = () => {
     const [products, setproducts] = useState([])

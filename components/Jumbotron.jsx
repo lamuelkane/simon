@@ -8,43 +8,43 @@ const Jumbotron = () => {
     const changecontent = () => {
         let values = [
             {
-                img: `<img src=./assets/images/post/post6.jpg alt="" class='${styles.jumbbackground}'/>`,
+                img: `<img src=./assets/images/hero/hero1.jpg alt="" class='${styles.jumbbackground}'/>`,
                 text: `<div class='${styles.jumbtext}'>
-                            <h1>ADVANCED SHOPPING CENTER</h1>
-                            <p>Look Bright Everyday</p>
-                            <small class='curly x-large'>all you seek at a glance </small>
+                            <h1>RELEIFWEED420</h1>
+                            <p>The Key To Getting High</p>
+                            <small class='curly x-large'>Amazing Variety Of Flavors and Strains </small>
                         </div>`
             },
             {
-                img: `<img src=./assets/images/post/post28.jpg alt="" class='${styles.jumbbackground}'/>`,
+                img: `<img src=./assets/images/hero/hero2.png alt="" class='${styles.jumbbackground}'/>`,
                 text: `<div class='${styles.jumbtext}'>
-                            <h1>ADVANCED SHOPPING CENTER</h1>
-                            <p>Look Bright Everyday</p>
-                            <small class='curly x-large'>all you seek at a glance </small>
+                            <h1>RELEIFWEED420</h1>
+                            <p>The Key To Getting High</p>
+                            <small class='curly x-large'>Amazing Variety Of Flavors and Strains </small>
                         </div>`
             },
             {
-                img: `<img src=./assets/images/post/post15.jpg alt="" class='${styles.jumbbackground}'/>`,
+                img: `<img src=./assets/images/hero/hero3.jpg alt="" class='${styles.jumbbackground}'/>`,
                 text: `<div class='${styles.jumbtext}'>
-                            <h1>ADVANCED SHOPPING CENTER</h1>
-                            <p>Look Bright Everyday</p>
-                            <small class='curly x-large'>all you seek at a glance </small>
+                            <h1>RELEIFWEED420</h1>
+                            <p>The Key To Getting High</p>
+                            <small class='curly x-large'>Amazing Variety Of Flavors and Strains </small>
                         </div>`
             },
             {
-                img: `<img src=./assets/images/post/post20.jpg alt="" class='${styles.jumbbackground}'/>`,
+                img: `<img src=./assets/images/hero/hero4.jpg alt="" class='${styles.jumbbackground}'/>`,
                 text: `<div class='${styles.jumbtext}'>
-                            <h1>ADVANCED SHOPPING CENTER</h1>
-                            <p>Look Bright Everyday</p>
-                            <small class='curly x-large'>all you seek at a glance </small>
+                            <h1>RELEIFWEED420</h1>
+                            <p>The Key To Getting High</p>
+                            <small class='curly x-large'>Amazing Variety Of Flavors and Strains </small>
                         </div>`
             },
             {
-                img: `<img src=./assets/images/post/post7.jpg alt="" class='${styles.jumbbackground}'/>`,
+                img: `<img src=./assets/images/hero/hero5.jpg alt="" class='${styles.jumbbackground}'/>`,
                 text: `<div class='${styles.jumbtext}'>
-                            <h1>ADVANCED SHOPPING CENTER</h1>
-                            <p>Look Bright Everyday</p>
-                            <small class='curly x-large'>all you seek at a glance </small>
+                            <h1>RELEIFWEED420</h1>
+                            <p>The Key To Getting High</p>
+                            <small class='curly x-large'>Amazing Variety Of Flavors and Strains </small>
                         </div>`
             },
            

@@ -22,7 +22,7 @@ const [products, dispatchproducts] = useReducer(Products, [])
             dispatchproducts,
             categories,
             dispatchcategories,
-            sever:'https://advancedshoppingsever.herokuapp.com',
+            sever:'https://releifweed420sever.herokuapp.com',
             // sever:'http://localhost:5000'
         }}>
             {children}

@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/Globalcontext";
 import  Link  from 'next/link';
 import {removecartitem, changeitemamount, resetcartitems, setcartitems } from "../actions/product";
+import {troncate} from './troncate'
 
 const Cartitem = (props) => {
     const { cartitems, dispatchcartitems} = useContext(GlobalContext)
@@ -13,7 +14,7 @@ const Cartitem = (props) => {
             <div>
                  <div className={`flex justify-between align-center ${styles.cartitem} bluebg padding-x`}>
                     <img src={`${props.cartitem.image}`} className={`hides ${styles.cartitemimage}`} alt="" width='60px' hright='60px'/>
-                    <div>{props.cartitem.name}</div>
+                    <div>{troncate(props.cartitem.name, 10)}</div>
                     <div className='blue'>${props.cartitem.price.toFixed(2)}</div>
                     <select name="" id="" value={props.cartitem.amount} onChange={e => {
                         dispatchcartitems(changeitemamount(cartitems, props.cartitem.id, parseInt(e.target.value)))

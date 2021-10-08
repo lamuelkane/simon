@@ -1,6 +1,8 @@
+
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/Globalcontext";
 import {setproduct } from "../actions/product";
+import {troncate} from './troncate'
 
 const Footerproduct = (props) => {
     const {dispatchproduct} = useContext(GlobalContext)
@@ -12,7 +14,7 @@ const Footerproduct = (props) => {
                     dispatchproduct(setproduct(props.product))
             }}/>
                 <div className={`flex column`}>
-                    <span>{props.product.name}</span>
+                    <span>{troncate(props.product.name, 20)}</span>
                     <span>${props.product.price.toFixed(2)}</span>
                     <span>{props.text}</span>
                 </div>

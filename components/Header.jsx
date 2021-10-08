@@ -47,7 +47,7 @@ const Header = (props) => {
     return (
         <>
         <ReactNotification />
-        <Chatbox />
+        {/* <Chatbox /> */}
         <Totop />
             <div className={`${styles.sideNav} main-bg white ${!showsidenav && styles.hidesidenav}`}>
                 <div className={`flex justify-between align-center`}>
@@ -92,7 +92,7 @@ const Header = (props) => {
                             <div className={`flex justify-between wrap`}>
                                 <div  className={`flex justify-between white padding-x align-center`}>
                                     <CallIcon />
-                                    <a href="tel:+237671738952" className={`margin-x white link`}>671738952</a>
+                                    <a href="tel:+17759648771" className={`margin-x white link`}>+1-(775)-964-8771</a>
                                 </div>
                                 <div className={`flex white justify-between align-center padding-x`}>
                                     <EmailIcon />
@@ -140,7 +140,7 @@ const Header = (props) => {
                                 </div>
                             </div>
                             <Link href={{ pathname: '/' }}>
-                                    <img src="./assets/images/logo.jpg" alt="logo" className={`${styles.logo} round pointer`}/>
+                                    <img src="./assets/images/logo.png" alt="logo" className={`${styles.logo} pointer`}/>
                             </Link>
                             <div className={`flex align-center hides`}>
                                 <div className={`margin-x ${styles.shopcategories}`}>

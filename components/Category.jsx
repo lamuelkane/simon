@@ -5,7 +5,7 @@ import { useContext , useEffect} from 'react';
 
 const Category = ({category}) => {
      const {products} = useContext(GlobalContext)
-     const product = products.find(prod => prod.category === category.category)
+     const product = products.find(prod => prod.category.toLowerCase() === category.category.toLowerCase())
 
     return (
         <>

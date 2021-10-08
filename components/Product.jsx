@@ -1,9 +1,11 @@
+
 import styles from '../styles/Product.module.css'
 import Rating from './Rating'
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/Globalcontext";
 import {setproduct } from "../actions/product";
 import axios from 'axios'
+import {troncate} from './troncate'
 
 
 const Product = (props) => {
@@ -21,7 +23,7 @@ const Product = (props) => {
                     dispatchproduct(setproduct(props.product))
             }}/>
             <div className={`flex justify-center column`}>
-                        <span className={`${styles.productname} main-color white`}>{props.product?.name}</span>
+                        <span className={`${styles.productname} main-color white`}>{troncate(props.product?.name, 40)}</span>
                         <div className={`${styles.productprice} blue`}>
                         {
                                props.product?.options[0]?

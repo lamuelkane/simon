@@ -1,4 +1,5 @@
-let troncate = (string, length) => {
+
+export const troncate = (string, length) => {
    if(string.length < length ) {
        return string
    }
