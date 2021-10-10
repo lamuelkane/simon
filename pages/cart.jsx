@@ -66,7 +66,7 @@ const Cart = () => {
           
            <Footer />
         </>
-    );
+    )
 }
 
 export default Cart;

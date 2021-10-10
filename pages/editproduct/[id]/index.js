@@ -147,11 +147,11 @@ export default function Dashboard() {
       setproductDescription(data.description)
       setoptions(data.options)
       setproductImage(`${data.image}`)
-      setsampleimage(`../../../${data.image}`)
+      setsampleimage(data.image.includes(sever)? data.image : `../../../${data.image}`)
   }
 
   useEffect(() => {
-    getproduct('6149b8eabed3de20c07e852d')
+    getproduct(id)
     getcategories()
   }, [id])
 

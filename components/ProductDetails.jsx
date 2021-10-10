@@ -81,6 +81,7 @@ const ProductDetails = () => {
                                             ))
                                         }
                                     </div>}
+                                    <div>
                                     <div className={`flex justify-between align-center`}>                                
                                           { product?.options[0] && <select
                                             value={option}
@@ -109,9 +110,8 @@ const ProductDetails = () => {
                                 </div>
                                 <div className={`margin-y`}>
                                     <div onClick={e => {
-                                    let item =  cartitems.find(item => item.name === product.name)
-                                    if (cartitems.find(item => item.name === product.name)) {
-                                        
+                                    let item =  cartitems.find(item => item.id === product._id)
+                                    if (item) {
                                     Notification({
                                         title:"Cart Item Exist",
                                         message:`The Item you are trying to add already Exist visit cart page to edit the quantity`,
@@ -124,7 +124,9 @@ const ProductDetails = () => {
                                       })
                                     error.current.play()
                                         return
-                                    }      
+                                    }
+                                    let image = product.image.includes(sever)? product.image : 'releifweed420.herokuapp.com' + product.image.replace('./', '/')
+                                    // console.log(image)      
                                         dispatchcartitems(addcartitem({
                                         price,
                                         amount,
@@ -132,7 +134,7 @@ const ProductDetails = () => {
                                         name: product.name,
                                         id:product._id,
                                         option,
-                                        image: product.image
+                                        image
                                     }, cartitems))
 
                                     Notification({
@@ -158,6 +160,7 @@ const ProductDetails = () => {
                                         </Button>
                                     </Link>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>

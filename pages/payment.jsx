@@ -32,8 +32,10 @@ const Payment = () => {
 
         cartitems.map(item => {
             let product =  products.find(prod => prod._id === item.id)
+           if(product){
             product.lastlyOrdered = new Date()
-            product.numOrders ++
+        product.numOrders ++
+           }
             productsorderd.push(product)
         })
         const {data} = await axios.post(`${sever}/order/getorder`, order)

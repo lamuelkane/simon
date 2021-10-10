@@ -103,10 +103,10 @@ export function ProductDescription(props) {
           <Tab label="Review" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        {
-          props.product?.description
-        }
+      <TabPanel value={value} index={0} >
+        <div dangerouslySetInnerHTML={{ __html: props.product?.description }}>
+
+        </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
           <div>
