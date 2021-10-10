@@ -1,4 +1,6 @@
 
+import Head from 'next/head'
+
 const Contactus = () => {
     return (
         <div>

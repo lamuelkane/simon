@@ -1,4 +1,6 @@
 
+import Head from 'next/head'
+
 const Aboutus = () => {
     return (
         <div>
