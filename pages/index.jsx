@@ -30,7 +30,7 @@ export default function Home() {
       <Header />
       <Jumbotron />
       <section className={`w-70 w-s-100 margin-auto padding`}>
-        <h2 className='curly xx-large text-center'>Available Categories</h2>
+        <h2 className='curly xx-large text-center'>Available Product Categories</h2>
         {
           products[0]?
           <Categorypreview products={products} categories={categories} />   

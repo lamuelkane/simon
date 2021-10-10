@@ -1,3 +1,4 @@
+
 import Footerproduct from "./Footerproduct";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/Globalcontext";
@@ -58,7 +59,7 @@ useEffect(() => {
                     <div className={`flex-3 margin-right`}>
                     <h3 className={`footertitle`}>RECENTLY ORDERED PRODUCTS</h3>
                         {
-                            clone3.sort((a, b) => {
+                            clone3.filter(p => p.lastlyOrdered.length > 10).sort((a, b) => {
                                 let older = new Date(a.lastlyOrdered).getTime()
                                 let newer = new Date(b.lastlyOrdered).getTime()
                                 return older > newer? -1 : 1
