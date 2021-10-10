@@ -1,3 +1,4 @@
+
 import styles from '../styles/Product.module.css'
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
@@ -125,7 +126,7 @@ const ProductDetails = () => {
                                     error.current.play()
                                         return
                                     }
-                                    let image = product.image.includes(sever)? product.image : 'releifweed420.herokuapp.com' + product.image.replace('./', '/')
+                                    let image = product.image.includes(sever)? product.image : 'https://releifweed420.herokuapp.com' + product.image.replace('./', '/')
                                     // console.log(image)      
                                         dispatchcartitems(addcartitem({
                                         price,
