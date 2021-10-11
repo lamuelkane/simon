@@ -7,6 +7,10 @@
     transition: all .5s ease;
 }
 
+.contacttext{
+    max-width: 80vw;
+}
+
 .product:hover{
     transform: scale(1.002);
     box-shadow: 0 23px 40px rgba(0, 0, 0, 0.5);

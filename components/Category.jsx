@@ -1,3 +1,4 @@
+
 import styles from '../styles/Home.module.css'
 import  Link  from 'next/link';
 import { GlobalContext } from '../context/Globalcontext';
@@ -12,8 +13,8 @@ const Category = ({category}) => {
             <div className={`${styles.category}`}>
                 <img src={product?.image} alt=""  className={`${styles.categoryImg}`}/>
                 <div className={`${styles.categoryoverlay}`}></div>
-                <span className={`${styles.categorylink} link`}>
-                    <Link href={`/shop?category=${category.category}`} >{category.category}</Link>
+                <span className={`${styles.categorylink} white`}>
+                    <Link href={`/shop?category=${category.category}`} >{category.category.toUpperCase()}</Link>
                 </span>
             </div> 
         </>

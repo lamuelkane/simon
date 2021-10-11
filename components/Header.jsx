@@ -130,10 +130,10 @@ const Header = (props) => {
                             </div>
                             <div className={`flex align-center hides`}>
                                 <div className={`margin-x`}>
-                                    <Link href='/' >ContactUs</Link>
+                                    <Link href='/contactus' >ContactUs</Link>
                                 </div>
                                 <div className={`margin-x`}>
-                                    <Link href='/'>AboutUs</Link>
+                                    <Link href='/aboutus'>AboutUs</Link>
                                 </div>
                                 <div className={`margin-x`}>
                                     <Link href={{ pathname: '/login' }}>Login</Link>

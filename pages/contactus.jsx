@@ -1,7 +1,29 @@
 
 import Head from 'next/head'
+import React, {useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Header from '../components/Header'
+import TextField from '@material-ui/core/TextField';
+import styles from '../styles/Product.module.css'
+import Footer from '../components/Footer';
+import Button from '@material-ui/core/Button';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
 
 const Contactus = () => {
+  const classes = useStyles();
+  const [name, setname] = useState('')
+  const [email, setemail] = useState('')
+  const [message, setmessage] = useState('')
+
     return (
         <div>
             <Head>
@@ -10,6 +32,32 @@ const Contactus = () => {
                 <link rel="icon" href="./assets/images/logo.png" />
                 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25151583.js"></script>
             </Head>
+            <Header />
+            <div className={`${styles.prodjum} flex justify-center curly xx-large align-center`}>
+                        home/contactus
+            </div>
+            <div className={`w-70 w-s-90 flex wrap margin-auto justify-between margin-bottom  ${styles.cartitemswrapper}`}>
+                <div>
+                    <div className={`curly xx-large`}> You Talk We Listen</div>
+                    <p>Email: info@topexoticweedstore.com .com</p>
+                    <p>Contact Number:+1-(775)-964-8771,</p>
+                    <p>Location : Los Angeles California. USA</p>
+                </div>
+                <div>
+                    <form className={`${classes.root} ${styles.cartitemswrappe}`} noValidate autoComplete="off">
+                        <TextField id="standard-basic" label="Name" value={name} onChange={e => setname(e.target.value)}/>
+                        <TextField id="filled-basic" label="Email" value={email} onChange={e => setemail(e.target.value)} type='email'/>
+                        {/* <TextField id="outlined-basic" label="Outlined" /> */}
+                       <div className="margin-top">
+                        <textarea name="" id="" cols="55" onChange={e => setmessage (e.target.value)} placeholder='Message' className={styles.contacttext} rows="10"></textarea>
+                       </div>
+                       <Button variant="contained" color="primary"  disableElevation  onClick={e => console.log({name, email, message})} >
+                             Send Message
+                        </Button>
+                    </form>
+                </div>
+            </div>
+            <Footer />
         </div>
     )
 }

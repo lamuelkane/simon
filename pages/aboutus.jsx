@@ -1,5 +1,9 @@
 
 import Head from 'next/head'
+import Header from '../components/Header'
+import Footer from '../components/Footer';
+import styles from '../styles/Product.module.css'
+
 
 const Aboutus = () => {
     return (
@@ -10,6 +14,21 @@ const Aboutus = () => {
                 <link rel="icon" href="./assets/images/logo.png" />
                 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25151583.js"></script>
             </Head>
+            <Header />
+            <div className={`${styles.prodjum} flex justify-center curly xx-large align-center`}>
+                        home/aboutus
+            </div>
+            <div className="main-bg w-80 margin-auto w-s-90 white padding margin-bottom">
+                <h2 className="curly center ">We Work Hard To Provide You The Best Quality Plants And Concerntrates</h2>
+                <p className="center ">
+                We are strong believers that every person who wants marijuana should have easy access to it. The government continues to say that it “does not endorse the use of marijuana, but the top courts have required reasonable access to authorized patients.” We want to do everything in our power to make sure that these patients get the very best access to the very best marijuana. Ultimately, we love high grade cannabis and all of its derivatives and we enjoy sharing it with our customers and friends that are in need.
+                </p>
+                <h2 className="curly center ">Our Company</h2>
+                <p className="center ">
+                Releifweed420 is your go-to online weed store. We are a safe, and discreet mail-order marijuana service based in California, USA. Our website allows you to easily order and we offer the fastest delivery and some of the best quality cannabis in the world.
+                </p>
+            </div>
+            <Footer />
         </div>
     )
 }
