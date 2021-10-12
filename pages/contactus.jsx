@@ -1,15 +1,17 @@
 
 import Head from 'next/head'
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Header from '../components/Header'
 import TextField from '@material-ui/core/TextField';
 import styles from '../styles/Product.module.css'
 import Footer from '../components/Footer';
 import Button from '@material-ui/core/Button';
+import axios from 'axios'
+import {GlobalContext} from '../context/Globalcontext'
+import {Notification} from '../components/Notification'
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({      
   root: {
     '& > *': {
       margin: theme.spacing(1),
@@ -23,6 +25,8 @@ const Contactus = () => {
   const [name, setname] = useState('')
   const [email, setemail] = useState('')
   const [message, setmessage] = useState('')
+  const {sever} = useContext(GlobalContext)
+
 
     return (
         <div>
@@ -51,7 +55,36 @@ const Contactus = () => {
                        <div className="margin-top">
                         <textarea name="" id="" cols="55" onChange={e => setmessage (e.target.value)} placeholder='Message' className={styles.contacttext} rows="10"></textarea>
                        </div>
-                       <Button variant="contained" color="primary"  disableElevation  onClick={e => console.log({name, email, message})} >
+                       <Button variant="contained" color="primary"  disableElevation  onClick={async(e) => {
+                         try{
+                            const {data} = await axios.post(`${sever}/contact`, {name, message, email})
+                            Notification({
+                              title:"Message sent successfully",
+                              message:`Thanks for contacting us, we will get back to you once we receive the email`,
+                              type:"success",
+                              container:"top-right",
+                              insert:"top",
+                              animationIn:"fadeInUp",
+                              animationOut:"fadeOut",
+                              duration:5000
+                            })
+                         }
+                         catch(err) {
+                          Notification({
+                            title:"Message sent fail",
+                            message:`we are sorry, an error occured`,
+                            type:"info",
+                            container:"top-right",
+                            insert:"top",
+                            animationIn:"fadeInUp",
+                            animationOut:"fadeOut",
+                            duration:5000
+                          })
+                          setname('')
+                          setemail('')
+                          setmessage('')
+                         }        
+                       }} >
                              Send Message
                         </Button>
                     </form>
