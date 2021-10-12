@@ -4,16 +4,16 @@ import Productpreview from './Productpreview';
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import { useState, useEffect, useContext } from 'react';
 import { GlobalContext } from "../context/Globalcontext";
-import {setproducts} from "../actions/product";
 import Pagination from '@material-ui/lab/Pagination';
 import {search} from './Search'
 import LoadingBox from './LoadingBox'
 import Footerproduct from './Footerproduct';
-import {troncate} from './troncate'
+// import {troncate} from './troncate'
+import axios from 'axios'
 
 const Productdisplay = () => {
     const [products, setproducts] = useState([])
-    const {products : createdproducts, categories, dispatchproducts} = useContext(GlobalContext)
+    const {products : createdproducts, categories, dispatchproducts, sever} = useContext(GlobalContext)
     const [show, setshow] = useState(false)
     const [clone, setclone] = useState([])
     const [pageNumber, setpageNumber] = useState(1)
@@ -140,7 +140,14 @@ const Productdisplay = () => {
                                 <div className={`${styles.prodsidebaritemselect}`}>
                                     {
                                       categories.map(cat => (
-                                        <div className={`${styles.sidenavitem}`} value={cat.category} key={cat._id}>{cat.category}</div>
+                                        <div className={`${styles.sidenavitem}`} onClick={async(e) => {
+                                           try{
+                                            const {data} = await axios.get(`${sever}/api/products/${cat.category.toLowerCase()}`)
+                                            console.log(data)
+                                           } catch(err) {
+                                            alert('an error occured')
+                                           }
+                                        }} value={cat.category} key={cat._id}>{cat.category}</div>          
                                       ))                                      
                                     }
                                 </div>
