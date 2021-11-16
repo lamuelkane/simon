@@ -19,6 +19,7 @@ import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {GlobalContext} from '../context/Globalcontext'
 import {Notification} from '../components/Notification'
+import Editor from '../components/Editor';
 
 
 function Copyright() {
@@ -134,6 +135,10 @@ export default function Dashboard() {
     setcategories(data)
   }
 
+  const setdes = (editorState) => {
+    setproductDescription({editorState})
+  }
+
   let sendProduct = async(e) =>  {
     e.preventDefault()
     if (!productImage) {
@@ -165,7 +170,6 @@ export default function Dashboard() {
    setTimeout(() => {
      window.location.reload()
    }, 3000);
-     console.log(data);
    } catch (error) {
      console.log(error);
    }
@@ -176,7 +180,6 @@ export default function Dashboard() {
    }
   options.push({name, price})
   setoptions(options)
-   console.log(options)
    setname("")
    setprice(0)
    setoption(false)
@@ -187,7 +190,6 @@ export default function Dashboard() {
   let i = e.target.files[0]
   bodyFormData.append('picture', i); 
   console.clear()
-  console.log(i)
   try {
     const {data} = await axios({
       method: "post",
@@ -196,11 +198,9 @@ export default function Dashboard() {
       headers: { "Content-Type": "multipart/form-data" },
     })
     console.clear()
-    console.log(data)
     setproductImage(`${sever}/uploads/${data.filename}`)
   } catch (error) {
     alert('an error ocurred while uploading image')
-    console.log(error)
   }
 }
 
@@ -253,14 +253,14 @@ export default function Dashboard() {
                             }
                         </label>
                     </div>
-                    <textarea name="" id="" cols="30" rows="10" required  onChange={e => setproductDescription(e.target.value)} ></textarea>
+                    <Editor setdescription={setproductDescription} description={productDescription}  />
                     <div className={`margin-bottom flex wrap column`}>
                         <h3>options</h3>
                         {
                           options.map(opt => (
                             <div  className={`flex align-center wrap padding`} key={opt.name}>
-                              <TextField id="standard-basic" label="Standard" value={opt.name} />
-                              <TextField id="standard-basic" label="Standard" value={opt.price} />
+                              <TextField id="standard-basic" label="name" value={opt.name} />
+                              <TextField id="standard-basic" label="price" value={opt.price} />
                               <div className={`margin-top`} id={opt.name} onClick={e => {
                                 setoptions(options.filter(o => o.name !== opt.name))
                                 }}>
@@ -277,8 +277,8 @@ export default function Dashboard() {
                             Add Option
                         </Button>
                        {option && <div  className={`flex align-center wrap `}>
-                             <TextField id="standard-basic" label="Standard" onChange={e => setname(e.target.value)} />
-                            <TextField id="standard-basic" label="Standard" onChange={e => setprice(parseInt(e.target.value))} />
+                             <TextField id="standard-basic" label="name" onChange={e => setname(e.target.value)} />
+                            <TextField id="standard-basic" label="price" onChange={e => setprice(parseInt(e.target.value))} />
                             <div className={`margin-top`}>
                               <Button variant="contained" color="primary" component="span" onClick={addProductOption}>
                                   Save Option

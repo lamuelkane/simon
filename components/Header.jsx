@@ -23,10 +23,14 @@ const Header = (props) => {
     const header = useRef()
     let {cartitems, dispatchcartitems, dispatchcategories, dispatchproducts, sever, categories} = useContext(GlobalContext)
     const setproductcontext = async () => {
-        const {data} = await axios.get(`${sever}/api/products/other`)
-        const {data: cat} = await axios.get(`${sever}/api/products/categories`)
-        dispatchproducts(setproducts(data))
-        dispatchcategories(setcategories(cat))
+        try {
+            const {data} = await axios.get(`${sever}/api/products/other`)
+            const {data: cat} = await axios.get(`${sever}/api/products/categories`)
+            dispatchproducts(setproducts(data))
+            dispatchcategories(setcategories(cat))
+        } catch (error) {
+            alert(error)
+        }
     }
 
     useEffect(() => {
@@ -96,10 +100,10 @@ const Header = (props) => {
                                 </div>
                                 <div className={`flex white justify-between align-center padding-x`}>
                                     <EmailIcon />
-                                    <a href="mailto:ashulemuel@gmail.com" className={`margin-x white link`}>ashulemuel@gmail.com</a>
+                                    <a href="mailto:ashulemuel@gmail.com" className={`margin-x white link`}>info@releifweed420.com</a>
                                 </div>
                             </div>
-                            <div className={`hides`}>15% off! Coupon Code: ACKLSI  <span className='link'><Link href={{ pathname: '/shop'}}>Shop Now</Link></span></div>
+                            <div className={`hides`}><span className='white'><Link href={{ pathname: '/shop'}}>Shop Now</Link></span></div>
                         </div>
                     </div>
                     <div className={`${styles.headerbottomwraper}`}>
@@ -145,7 +149,7 @@ const Header = (props) => {
                             <div className={`flex align-center hides`}>
                                 <div className={`margin-x ${styles.shopcategories}`}>
                                 <div  className={`${styles.shoplink}`}>
-                                  <Link href={{ pathname: '/shop', query: {category: 'all-products'}}} as={`/shop?ctaegory='category'`} >Shop</Link>   
+                                  <Link href={{ pathname: '/shop'}} >Shop</Link>   
                                 </div>
                                   {/* <div className={`${styles.shopcategoriesitems}`}> */}
                                 <div className={`${styles.shopcategoriesitemswrapper}`}>

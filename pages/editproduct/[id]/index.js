@@ -18,6 +18,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {GlobalContext} from '../../../context/Globalcontext'
+import Editor from '../../../components/Editor';
 import {Notification} from '../../../components/Notification'
 
 
@@ -252,7 +253,7 @@ export default function Dashboard() {
                             
                         </label>
                     </div>
-                    <textarea name="" id="" cols="30" rows="10" required value={productDescription}  onChange={e => setproductDescription(e.target.value)} ></textarea>
+                    <Editor setdescription={setproductDescription} description={productDescription} data={productDescription}  />
                     <div className={`margin-bottom flex wrap column`}>
                         <h3>options</h3>
                         {

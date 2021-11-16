@@ -53,7 +53,7 @@ const Contactus = () => {
                         <TextField id="filled-basic" label="Email" value={email} onChange={e => setemail(e.target.value)} type='email'/>
                         {/* <TextField id="outlined-basic" label="Outlined" /> */}
                        <div className="margin-top">
-                        <textarea name="" id="" cols="55" onChange={e => setmessage (e.target.value)} placeholder='Message' className={styles.contacttext} rows="10"></textarea>
+                        <textarea name="" id="" cols="50" onChange={e => setmessage (e.target.value)} placeholder='Message' className={styles.contacttext} rows="10"></textarea>
                        </div>
                        <Button variant="contained" color="primary"  disableElevation  onClick={async(e) => {
                          try{
@@ -71,7 +71,7 @@ const Contactus = () => {
                          }
                          catch(err) {
                           Notification({
-                            title:"Message sent fail",
+                            title:"Message send fail",
                             message:`we are sorry, an error occured`,
                             type:"info",
                             container:"top-right",

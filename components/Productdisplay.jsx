@@ -9,6 +9,7 @@ import {search} from './Search'
 import LoadingBox from './LoadingBox'
 import Footerproduct from './Footerproduct';
 // import {troncate} from './troncate'
+import { useRouter } from 'next/router';
 import axios from 'axios'
 
 const Productdisplay = () => {
@@ -19,6 +20,7 @@ const Productdisplay = () => {
     const [pageNumber, setpageNumber] = useState(1)
     const [productperpage, setproductperpage] = useState(10)
     let pagesVited = pageNumber * productperpage
+    const router = useRouter()
     
     const [productList, setproductList] = useState([])
       useEffect(() => {
@@ -35,6 +37,23 @@ const Productdisplay = () => {
       }).slice(pagesVited, pagesVited + 20))
         setclone(createdproducts)
       },[pagesVited, createdproducts])
+
+      const getcategoryproducts = async (cat) => {
+        setproductList([])
+        try{
+            const {data} = await axios.get(`${sever}/api/products/products/${cat.toUpperCase()}`)
+            setproductList(data)
+           } catch(err) {
+            alert('an error occured while getting products')
+            setproductList(createdproducts)
+           }
+      }
+      const {category} = router.query
+
+      useEffect(() => {
+       if(category)  getcategoryproducts(category)
+      },[category])
+
       const handleChange = (event, value) => {
         setpageNumber(value)
       };
@@ -141,18 +160,14 @@ const Productdisplay = () => {
                                     {
                                       categories.map(cat => (
                                         <div className={`${styles.sidenavitem}`} onClick={async(e) => {
-                                           try{
-                                            const {data} = await axios.get(`${sever}/api/products/${cat.category.toLowerCase()}`)
-                                            console.log(data)
-                                           } catch(err) {
-                                            alert('an error occured')
-                                           }
+                                            setproductList([])
+                                            router.push(`/shop?category=${cat.category}`)
                                         }} value={cat.category} key={cat._id}>{cat.category}</div>          
                                       ))                                      
                                     }
                                 </div>
                             </div>
-                        </div>
+                        </div>    
                         <div className={`${styles.productsidebaritem} margin-bottom`}>
                             <div className={`${styles.description} white main-bg`}>
                                 BEST SELLERS
@@ -169,13 +184,13 @@ const Productdisplay = () => {
                                 </div>
                             </div>
                         </div>
-                        <Pagination count={Math.round(products.length / 10)} page={pageNumber} onChange={handleChange} siblingCount={0} color="primary"/>
+                        <Pagination count={Math.round(productList.length / 10)} page={pageNumber} onChange={handleChange} siblingCount={0} color="primary"/>
                     </div>
                         <div className={`${styles.showproductsidenav}`} onClick={e => setshow(!show)}> <DehazeIcon /> </div>
                 </div> 
                     <div className={`${styles.productdisplay}`}>
                         {
-                          products[0]?
+                          productList[0]?
                           <Productpreview products={productList} />
                           : <LoadingBox />
                         }

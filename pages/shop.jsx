@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import styles from '../styles/Product.module.css'
 import Head from 'next/head'
 import Swipers from '../components/Swipers';
-import { useRouter } from "next/dist/client/router";
+import router, { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/Globalcontext";
 import LoadingBox from '../components/LoadingBox'

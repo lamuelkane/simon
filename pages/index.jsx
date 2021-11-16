@@ -41,7 +41,7 @@ export default function Home() {
 
       <div className={`flex justify-center align-center column padding ${styles.goldenofffer}`}>
         <h3>Golden Offer</h3>
-        <h1 className={`${styles.offerh1}`}>GET UP TO 7 DAYS MONEY BACK GUSRSNTEE</h1>
+        <h1 className={`${styles.offerh1}`}>GET UP TO 7 DAYS MONEY BACK GUARANTEE</h1>
         <button className={`${styles.offerbtn}`}>
             <Link href='/shop' >Shop Now</Link>
         </button>
@@ -91,7 +91,7 @@ export default function Home() {
                                 let older = new Date(a.lastlyOrdered).getTime()
                                 let newer = new Date(b.lastlyOrdered).getTime()
                                 return older > newer? -1 : 1
-                            }).find(pro => pro.category.toLowerCase() === cat.category.toLowerCase()).image} alt="" className={`round`} width='200px' height='200px'/>
+                            }).find(pro => pro.category.toLowerCase() === cat.category.toLowerCase())?.image} alt="" className={`round`} width='200px' height='200px'/>
                   </div>   
               </div>
                : <LoadingBox />

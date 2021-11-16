@@ -14,15 +14,12 @@ const Categorypreview  = ({categories}) => {
     width.current = window?.innerWidth
       if(width.current > 1000){
           setnum(4)
-          console.log('> 1000', width.current, num)
       }
       if(width.current > 800 && width.current < 1000){
           setnum(3)
-          console.log('> 800 < 1000', width.current, num)
       }
       if(width.current < 800){
           setnum(2)
-          console.log('< 800', width.current, num)
       }
     //   window.onresize = () => {
     //     console.clear()
