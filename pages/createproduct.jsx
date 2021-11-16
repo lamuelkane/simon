@@ -253,7 +253,7 @@ export default function Dashboard() {
                             }
                         </label>
                     </div>
-                    <Editor setdescription={setproductDescription} description={productDescription}  />
+                    {/* <Editor setdescription={setproductDescription} description={productDescription}  /> */}
                     <div className={`margin-bottom flex wrap column`}>
                         <h3>options</h3>
                         {
