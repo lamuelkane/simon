@@ -19,7 +19,7 @@ import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {GlobalContext} from '../context/Globalcontext'
 import {Notification} from '../components/Notification'
-import Editor from '../components/Editor';
+// import Editor from '../components/Editor';
 
 
 function Copyright() {
