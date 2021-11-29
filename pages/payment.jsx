@@ -42,7 +42,7 @@ const Payment = () => {
         const {data: res} = await axios.post(`${sever}/api/products/updateproducts`, productsorderd)
         Notification({
             title:"ORDER SUCCESS",
-            message:`Sucessfuly ordered products, you will receive an email from one of our support team members instructing you hoe to proceed with payment`,
+            message:`Sucessfuly ordered products, you will receive an email from one of our support team members instructing you how to proceed with payment`,
             type:"success",
             container:"top-right",
             insert:"top",
@@ -51,7 +51,9 @@ const Payment = () => {
             duration:10000
           })
         localStorage.removeItem('cartitems')
-        router.push('/')
+        setTimeout(() => {
+            router.push('/')
+        }, 15000);
     }
 
     useEffect(() => {

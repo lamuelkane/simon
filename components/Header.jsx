@@ -100,7 +100,7 @@ const Header = (props) => {
                                 </div>
                                 <div className={`flex white justify-between align-center padding-x`}>
                                     <EmailIcon />
-                                    <a href="mailto:ashulemuel@gmail.com" className={`margin-x white link`}>info@releifweed420.com</a>
+                                    <a href="mailto:releifweed420@outlook.com" className={`margin-x white link`}>releifweed420@outlook.com</a>
                                 </div>
                             </div>
                             <div className={`hides`}><span className='white'><Link href={{ pathname: '/shop'}}>Shop Now</Link></span></div>
