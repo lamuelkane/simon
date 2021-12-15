@@ -79,10 +79,10 @@ const Header = (props) => {
                                     <Link href='/aboutus'>AboutUs</Link>
                                 </div>
                                 <div className={`${styles.sidenavitem}`}>
-                                    <Link href='/checkout'>Checkout</Link>
+                                    <Link href='/payment'>Checkout</Link>
                                 </div>
                                 <div className={`${styles.sidenavitem}`}>
-                                    <Link href='/address'>shippingAddress</Link>
+                                    <Link href='/shippingaddress'>shippingAddress</Link>
                                 </div>
                         </div>
                 </div>
