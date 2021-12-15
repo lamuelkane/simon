@@ -19,7 +19,7 @@ const Payment = () => {
     const router = useRouter()
     let  shipping = useRef()
     const [shippingaddress, setshippingaddress] = useState([])
-    const [ paymentmethod, setpaymentmethod] = useState('paypal')
+    const [ paymentmethod, setpaymentmethod] = useState('Bitcoin')
     
     const makeorder = async () => {
         const order = {
@@ -81,9 +81,10 @@ const Payment = () => {
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">PAYMENT METHOD</FormLabel>
                                 <RadioGroup aria-label="gender" name="gender1" value={paymentmethod} onChange={e => setpaymentmethod(e.target.value)}>
-                                    <FormControlLabel value="paypal" control={<Radio />} label="paypal" />
+                                    <FormControlLabel value="Cash app" control={<Radio />} label="Cash app" />
                                     <FormControlLabel value="Bitcoin" control={<Radio />} label="Bitcoin" />
-                                    <FormControlLabel value="Stripe" control={<Radio />} label="Stripe" />
+                                    <FormControlLabel value="Zelle Pay" control={<Radio />} label="Zelle Pay" />
+                                    <FormControlLabel value="Apple Pay" control={<Radio />} label="Apple Pay" />
                                 </RadioGroup>
                             </FormControl>
                             </div>
