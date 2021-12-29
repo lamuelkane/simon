@@ -126,7 +126,7 @@ const ProductDetails = () => {
                                     error.current.play()
                                         return
                                     }
-                                    let image = product.image.includes(sever)? product.image : 'https://releifweed420.herokuapp.com' + product.image.replace('./', '/')
+                                    let image = product.image.includes(sever)? product.image : product.image.includes('https://') ? product.image : 'https://releifweed420.herokuapp.com' + product.image.replace('./', '/')
                                     // console.log(image)      
                                         dispatchcartitems(addcartitem({
                                         price,
