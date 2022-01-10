@@ -348,8 +348,8 @@ tr{
 
 .totop{
   position: fixed;
-    bottom: 90px;
-    right: 28px;
+    bottom: 130px;
+    right: 30px;
     padding: 10px;
     display: flex;
     align-items: center;
