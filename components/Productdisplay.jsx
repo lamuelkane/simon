@@ -184,7 +184,7 @@ const Productdisplay = () => {
                                 </div>
                             </div>
                         </div>
-                        <Pagination count={Math.round(productList.length / 10)} page={pageNumber} onChange={handleChange} siblingCount={0} color="primary"/>
+                        <Pagination count={Math.ceil(products.length / 20)} page={pageNumber} onChange={handleChange} siblingCount={0} color="primary"/>
                     </div>
                         <div className={`${styles.showproductsidenav}`} onClick={e => setshow(!show)}> <DehazeIcon /> </div>
                 </div> 

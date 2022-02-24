@@ -24,6 +24,7 @@ const [products, dispatchproducts] = useReducer(Products, [])
             categories,
             dispatchcategories,
             sever:'https://releifweed420sever.herokuapp.com',
+            sever2:'https://aholaimageupload.herokuapp.com',
             // sever:'http://localhost:5000'
         }}>
             {children}

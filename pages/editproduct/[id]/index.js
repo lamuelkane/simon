@@ -18,8 +18,13 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {GlobalContext} from '../../../context/Globalcontext'
-// import Editor from '../../../components/Editor';
 import {Notification} from '../../../components/Notification'
+
+import dynamic from 'next/dynamic'
+
+let Editor = dynamic(() => import("../../../components/Editor"), {
+    ssr: false
+}) 
 
 
 function Copyright() {
@@ -117,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
-  const {sever} = useContext(GlobalContext)
+  const {sever, sever2} = useContext(GlobalContext)
   const [option, setoption] = useState(false)
   const [name, setname] = useState("")
   const [price, setprice] = useState(null)
@@ -199,18 +204,18 @@ export default function Dashboard() {
  let sendimage = async(e) => {
   var bodyFormData = new FormData();
   let i = e.target.files[0]
-  bodyFormData.append('picture', i); 
+  bodyFormData.append('file', i); 
   try {
     const {data} = await axios({
       method: "post",
-      url: `${sever}/api/products/uploadphoto`,
+      url: `${sever2}/upload`,
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
     })
-    setproductImage(`${sever}/uploads/${data.filename}`)
-    setcreatedimage(`${sever}/uploads/${data.filename}`)
+    setproductImage(`${sever2}/image/${data.filename}`)
+    setcreatedimage(`${sever2}/image/${data.filename}`)
   } catch (error) {
-    alert('an error ocurred while uploading image')
+    alert(error)
   }
 }
 
@@ -253,7 +258,7 @@ export default function Dashboard() {
                             
                         </label>
                     </div>
-                    {/* <Editor setdescription={setproductDescription} description={productDescription} data={productDescription}  /> */}
+                    <Editor setdescription={setproductDescription} description={productDescription} data={productDescription}  />
                     <div className={`margin-bottom flex wrap column`}>
                         <h3>options</h3>
                         {
