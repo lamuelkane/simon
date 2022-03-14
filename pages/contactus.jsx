@@ -44,7 +44,7 @@ const Contactus = () => {
             <div className={`w-70 w-s-90 flex wrap margin-auto justify-between margin-bottom  ${styles.cartitemswrapper}`}>
                 <div>
                     <div className={`curly xx-large`}> You Talk We Listen</div>
-                    <p><span>EMAIL: </span> <a  className={`margin-x white link`} href="mailto:releifweed420@outlook.com">releifweed420@outlook.com</a></p>
+                    <p><span>EMAIL: </span> <a  className={`margin-x white link`} href="mailto:info@releifweed420.com">info@releifweed420.com</a></p>
                     <p><span>PHONE:</span> <a href="tel:+17759648771" className={`margin-x white link`}>+1-(775)-964-8771</a></p>
                     <p>Location : Los Angeles California. USA</p>
                 </div>

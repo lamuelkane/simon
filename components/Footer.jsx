@@ -29,7 +29,7 @@ useEffect(() => {
                 <div className={`flex justify-evenly wrap columnl margin-top`}>
                     <div className={`flex-3 margin-right`}>
                         <h3 className={`footertitle`}>GET IN TOUCH WITH US</h3>
-                        <p><span>EMAIL: </span> <a  className={`margin-x white link`} href="mailto:releifweed420@outlook.com">releifweed420@outlook.com</a></p>
+                        <p><span>EMAIL: </span> <a  className={`margin-x white link`} href="mailto:info@releifweed420.com">info@releifweed420.com</a></p>
                         <p><span>PHONE:</span> <a href="tel:+17759648771" className={`margin-x white link`}>+1-(775)-964-8771</a></p>
                         <input type="text" id='search' className={``} placeholder='search products' onChange={e => {
                                   clearTimeout(query)

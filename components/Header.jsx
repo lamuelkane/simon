@@ -48,24 +48,44 @@ const Header = (props) => {
             setproductcontext()
     }, []);
 
+    const loadchat2 = () => {
+        let s1 = document.createElement("script")
+        s1.type = 'text/javascript'
+        s1.src = './livechat.js'
+        const s2 = document.getElementsByTagName('script')[0]
+        s2.parentNode.insertBefore(s1,s2)
+    }
+
     useEffect(() => {
         // <script type="text/javascript">
                 // {/* var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date() */}
-                let loadchat = () => {
-                    let s1=document.createElement("script"),
-                    s0=document.getElementsByTagName("script")[0];
-                    s1.async=true;
-                    s1.src='https://embed.tawk.to/61e737b3f7cf527e84d2d52e/1fpnj3633';
-                    s1.charset='UTF-8';
-                    s1.setAttribute('crossorigin','*');
-                    s0.parentNode.insertBefore(s1,s0);
-                }
+                // let loadchat = () => {
+                //     let s1=document.createElement("script"),
+                //     s0=document.getElementsByTagName("script")[0];
+                //     s1.async=true;
+                //     s1.src='https://embed.tawk.to/61e737b3f7cf527e84d2d52e/1fpnj3633';
+                //     s1.charset='UTF-8';
+                //     s1.setAttribute('crossorigin','*');
+                //     s0.parentNode.insertBefore(s1,s0);
+                // }
 
-                loadchat()
-                {/* function(){
-                
-                }(); */}
+                // loadchat()
+                // {/* function(){
+                // // 
+                // }(); */}
         // </script>
+        // <!-- Smartsupp Live Chat script -->
+                // <script type="text/javascript">
+                // var _smartsupp = _smartsupp || {};
+                // _smartsupp.key = 'ada946c7b8255ab5d4409f99a9595655375f0e4e';
+                // window.smartsupp||(function(d) {
+                // var s,c,o=_smartsupp=function(){ o._.push(arguments)};o._=[];
+                // s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+                // c.type='text/javascript';c.charset='utf-8';c.async=true;
+                // c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+                // })(document);
+                // </script>
+                loadchat2()
     }, [])
 
     return (
@@ -120,7 +140,7 @@ const Header = (props) => {
                                 </div>
                                 <div className={`flex white justify-between align-center padding-x`}>
                                     <EmailIcon />
-                                    <a href="mailto:releifweed420@outlook.com" className={`margin-x white link`}>releifweed420@outlook.com</a>
+                                    <a href="mailto:info@releifweed420.com" className={`margin-x white link`}>info@releifweed420.com</a>
                                 </div>
                             </div>
                             <div className={`hides`}><span className='white'><Link href={{ pathname: '/shop'}}>Shop Now</Link></span></div>
